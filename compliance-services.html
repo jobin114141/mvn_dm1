@@ -1,0 +1,881 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliance Services UAE | Maven Consults</title>
+  <meta name="description" content="Professional corporate and regulatory compliance support for UAE businesses. Corporate compliance, AML, UBO, ESR, annual compliance and regulatory reporting from Maven Consults.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { --comp-line: rgba(160,131,88,.18); --comp-bg: rgba(160,131,88,.025); }
+
+    /* ── Bento service grid ── */
+    .comp-bento { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--comp-line); border:1px solid var(--comp-line); }
+    .comp-bento-card { background:var(--bg-color); padding:28px 24px; transition:background .3s; }
+    .comp-bento-card:hover { background:var(--comp-bg); }
+    .comp-bento-wide { grid-column:span 2; }
+    .comp-bento-num { font-family:'Bodoni Moda',serif; font-size:clamp(2rem,3.5vw,3rem); color:rgba(160,131,88,.12); line-height:1; margin-bottom:14px; font-weight:400; }
+
+    /* ── Centered vertical timeline ── */
+    .comp-timeline { position:relative; display:flex; flex-direction:column; gap:0; max-width:780px; margin:0 auto; }
+    .comp-timeline::before { content:''; position:absolute; top:0; bottom:0; left:50%; width:1px; background:rgba(160,131,88,.25); transform:translateX(-50%); }
+    .comp-tl-row { display:grid; grid-template-columns:1fr 52px 1fr; gap:0; align-items:center; padding:0 0 48px; }
+    .comp-tl-row:last-child { padding-bottom:0; }
+    .comp-tl-left { padding-right:32px; text-align:right; }
+    .comp-tl-right { padding-left:32px; }
+    .comp-tl-node { width:52px; height:52px; border-radius:50%; border:2px solid var(--brand-gold); background:var(--bg-color); display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); font-size:1rem; color:var(--brand-gold); z-index:1; position:relative; flex-shrink:0; transition:all .3s; }
+    .comp-tl-row:hover .comp-tl-node { background:var(--brand-gold); color:#fff; }
+    .comp-tl-empty { /* empty side placeholder */ }
+
+    /* ── Challenge/Solution two-col ── */
+    .comp-cs-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--comp-line); }
+    .comp-cs-col { padding:36px 32px; }
+    .comp-cs-col:first-child { border-right:1px solid var(--comp-line); background:rgba(20,20,20,0.97); }
+    .comp-cs-item { display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.07); }
+    .comp-cs-item:last-child { border-bottom:none; }
+    .comp-cs-item-right { display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--comp-line); }
+    .comp-cs-item-right:last-child { border-bottom:none; }
+
+    /* ── Tab section ── */
+    .comp-tab-bar { display:flex; gap:0; border-bottom:1px solid var(--comp-line); overflow-x:auto; }
+    .comp-tab-btn { padding:14px 28px; font-size:11px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase; color:var(--text-muted); background:transparent; border:none; border-bottom:2px solid transparent; cursor:pointer; white-space:nowrap; transition:all .3s; margin-bottom:-1px; font-family:var(--font-body); }
+    .comp-tab-btn.active, .comp-tab-btn:hover { color:var(--brand-gold); border-bottom-color:var(--brand-gold); }
+    .comp-tab-panel { display:none; padding:40px 0 0; }
+    .comp-tab-panel.active { display:block; }
+
+    /* ── Compliance checkpoint checklist ── */
+    .comp-check-list { display:flex; flex-direction:column; gap:0; }
+    .comp-check-item { display:flex; align-items:center; gap:18px; padding:18px 20px; border-top:1px solid var(--comp-line); cursor:pointer; transition:background .25s; }
+    .comp-check-item:last-child { border-bottom:1px solid var(--comp-line); }
+    .comp-check-item:hover { background:var(--comp-bg); }
+    .comp-check-item:hover .comp-check-box { border-color:var(--brand-gold); background:rgba(160,131,88,.08); }
+    .comp-check-item:hover .comp-check-box i { opacity:1; }
+    .comp-check-box { width:32px; height:32px; border:1.5px solid rgba(160,131,88,.3); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all .3s; }
+    .comp-check-box i { color:var(--brand-gold); font-size:.8rem; opacity:0; transition:opacity .25s; }
+
+    /* ── Why maven feature bars ── */
+    .comp-feat-bar { display:flex; align-items:center; gap:24px; padding:22px 0; border-top:1px solid var(--comp-line); }
+    .comp-feat-bar:last-child { border-bottom:1px solid var(--comp-line); }
+    .comp-feat-bar-label { width:200px; flex-shrink:0; font-size:11px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase; color:var(--brand-gold); }
+    .comp-feat-bar-fill { flex:1; height:2px; background:rgba(160,131,88,.12); position:relative; }
+    .comp-feat-bar-fill-inner { position:absolute; top:0; left:0; height:100%; background:var(--brand-gold); transition:width 1.2s ease; }
+    .comp-feat-bar-text { flex:2; font-size:14px; color:var(--text-muted); line-height:1.6; }
+
+    /* ── FAQ ── */
+    .comp-faq-item { border-top:1px solid var(--comp-line); }
+    .comp-faq-item:last-child { border-bottom:1px solid var(--comp-line); }
+    .comp-faq-q { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px 0; cursor:pointer; font-family:var(--font-serif); font-size:1.02rem; color:var(--text-dark); transition:color .25s; }
+    .comp-faq-q:hover { color:var(--brand-gold); }
+    .comp-faq-icon { font-size:18px; color:var(--brand-gold); flex-shrink:0; }
+    .comp-faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+    .comp-faq-a.open { max-height:260px; }
+    .comp-faq-a-inner { padding:0 40px 20px 0; font-size:13.5px; color:var(--text-muted); line-height:1.75; }
+
+    /* ── Statement wall ── */
+    .comp-statement-wall { padding:72px 0; background:var(--text-dark); text-align:center; position:relative; overflow:hidden; }
+    .comp-statement-wall::before { content:'COMPLIANCE'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Bodoni Moda',serif; font-size:clamp(5rem,14vw,12rem); color:rgba(255,255,255,.025); pointer-events:none; white-space:nowrap; letter-spacing:4px; }
+
+    @media(max-width:900px){
+      .comp-bento { grid-template-columns:repeat(2,1fr); }
+      .comp-bento-wide { grid-column:span 1; }
+      .comp-cs-grid { grid-template-columns:1fr; }
+      .comp-cs-col:first-child { border-right:none; border-bottom:1px solid rgba(255,255,255,.1); }
+      .comp-timeline::before { left:26px; }
+      .comp-tl-row { grid-template-columns:52px 1fr; }
+      .comp-tl-left { display:none; }
+      .comp-tl-right { padding-left:24px; }
+      .comp-feat-bar { flex-wrap:wrap; }
+      .comp-feat-bar-label { width:auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ HERO ═══ -->
+  <div class="hero-wrapper services-hero-wrapper" id="home" style="min-height:85vh;">
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="logo">MAVEN</a>
+      </div>
+
+      <nav class="nav-center" id="navMenu">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        
+        <!-- 1. OFFSHORE FORMATION DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="offshore-company-formation.html" class="nav-link nav-dropdown-trigger">
+            OFFSHORE FORMATION <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="jafza-offshore.html"><span class="mega-bullet">✦</span> JAFZA Offshore</a></li>
+              <li><a href="rak-offshore.html"><span class="mega-bullet">✦</span> RAK Offshore</a></li>
+              <li><a href="ajman-offshore.html"><span class="mega-bullet">✦</span> Ajman Offshore</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. LICENSING DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="licensing.html" class="nav-link nav-dropdown-trigger">
+            LICENSING <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="licensing.html"><span class="mega-bullet">✦</span> Licensing Overview</a></li>
+              <li><a href="licensing/forex-cfd.html"><span class="mega-bullet">✦</span> Forex &amp; CFD</a></li>
+              <li><a href="licensing/crypto-virtual-assets.html"><span class="mega-bullet">✦</span> Crypto &amp; Virtual Assets</a></li>
+              <li><a href="licensing/payments-fintech.html"><span class="mega-bullet">✦</span> Payments &amp; Fintech</a></li>
+              <li><a href="licensing/online-gambling.html"><span class="mega-bullet">✦</span> Online Gambling</a></li>
+              <li><a href="licensing/trust-formation.html"><span class="mega-bullet">✦</span> Trust Formation</a></li>
+              <li><a href="licensing/foundation-holding-structures.html"><span class="mega-bullet">✦</span> Foundations &amp; Holding</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. COMPANY FORMATION DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="company-formation.html" class="nav-link nav-dropdown-trigger">
+            COMPANY FORMATION <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="dubai-free-zone.html"><span class="mega-bullet">✦</span> Dubai Free Zones</a></li>
+              <li><a href="sharjah-free-zone.html"><span class="mega-bullet">✦</span> Sharjah Free Zones</a></li>
+              <li><a href="rak-free-zone.html"><span class="mega-bullet">✦</span> RAK Free Zones</a></li>
+              <li><a href="ajman-free-zone.html"><span class="mega-bullet">✦</span> Ajman Free Zones</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. PRO & COMPLIANCE DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="pro-services.html" class="nav-link nav-dropdown-trigger active">
+            PRO &amp; COMPLIANCE <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="pro-services.html"><span class="mega-bullet">✦</span> PRO Services</a></li>
+              <li><a href="visa-services.html"><span class="mega-bullet">✦</span> Visa Services</a></li>
+              <li><a href="accounting-bookkeeping.html"><span class="mega-bullet">✦</span> Accounting &amp; Bookkeeping</a></li>
+              <li><a href="vat-services.html"><span class="mega-bullet">✦</span> VAT Services</a></li>
+              <li><a href="compliance-services.html"><span class="mega-bullet">✦</span> Compliance Services</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="blog.html" class="nav-link">BLOG</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="contact.html" class="btn-ribbon nav-btn-compact">BOOK CONSULTATION ↗</a>
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="hero-main" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px var(--container-padding, 40px) 40px var(--container-padding, 40px); position: relative; z-index: 2; min-height: 70vh; justify-content: center;">
+      <div class="hero-reveal" style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; padding: 6px 18px; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+          ✦ REGULATORY COMPLIANCE & GOVERNANCE
+        </span>
+
+        <h1 style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: clamp(2.3rem, 4.2vw, 3.6rem); font-weight: 400; color: var(--text-dark, #141414); line-height: 1.16; margin-bottom: 18px; letter-spacing: -0.5px;">
+          AML, ESR & UBO <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold, #a08358); font-weight: 400;">Regulatory Compliance.</em>
+        </h1>
+
+        <p style="font-size: 15.5px; color: var(--text-muted, #555); line-height: 1.78; max-width: 720px; margin-bottom: 28px;">
+          Safeguard your enterprise against regulatory penalties through comprehensive Anti-Money Laundering (AML/CFT) frameworks, Economic Substance Regulations (ESR), and Ultimate Beneficial Owner (UBO) filings.
+        </p>
+
+        <!-- CTA Group -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+          <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding: 13px 32px; font-size: 11px; letter-spacing: 2px;">
+            BOOK CONSULTATION ↗
+          </a>
+          
+        </div>
+
+        <!-- 5 Metric Ribbon Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; width: 100%; max-width: 920px;">
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">AML / CFT</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">GoAML Registration</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">ESR FILING</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Economic Substance Audits</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">UBO REGISTRY</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Authority Declarations</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">CORPORATE TAX</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Registration & Filing</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">PENALTY SHIELD</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Full Risk Protection</strong>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="sub-peek-section hero-reveal"><h2 class="sub-peek-title">CORPORATE COMPLIANCE · AML · UBO REQUIREMENTS · ESR · ANNUAL COMPLIANCE · REGULATORY REPORTING</h2></div>
+  </div>
+
+
+  <!-- ══════════════════════ INTRO STATEMENT WALL ═══ -->
+  <section class="comp-statement-wall">
+    <div class="section-container" style="position:relative;z-index:2;max-width:860px;margin:0 auto;">
+      <span class="label-pill" style="margin-bottom:20px;display:inline-block;background:rgba(160,131,88,0.12);border-color:rgba(160,131,88,0.25);color:var(--brand-gold);">✦ COMPLIANCE, SIMPLIFIED</span>
+      <h2 style="font-family:'Bodoni Moda',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff;font-weight:400;line-height:1.2;margin-bottom:20px;">Compliance Shouldn't Become<br><em style="color:var(--brand-gold);">a Business Distraction</em></h2>
+      <p style="font-size:15.5px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:680px;margin:0 auto 28px;">Running a business comes with ongoing corporate, regulatory and documentation requirements. Missing an obligation or failing to maintain the right records can create unnecessary complications.</p>
+      <div style="display:inline-block;padding:16px 28px;border:1px solid rgba(160,131,88,0.3);background:rgba(160,131,88,0.06);">
+        <span style="font-family:var(--font-serif);font-size:1.1rem;color:rgba(255,255,255,0.8);font-style:italic;">The goal is simple: help you stay organised, informed and prepared.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════ COMPLIANCE SERVICES BENTO ═══ -->
+  <section id="comp-services" style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="text-align:center;margin-bottom:50px;">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHAT WE COVER</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">Practical Support Across <em>Your Compliance Requirements</em></h2>
+      </div>
+
+      <div class="comp-bento">
+
+        <div class="comp-bento-card comp-bento-wide">
+          <div class="comp-bento-num">01</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">CORPORATE COMPLIANCE</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">Corporate Compliance</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support with ongoing corporate compliance requirements and obligations associated with maintaining a business structure in the UAE and relevant jurisdictions.</p>
+        </div>
+
+        <div class="comp-bento-card">
+          <div class="comp-bento-num">02</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">REGULATORY</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">Regulatory Compliance</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Guidance and support around relevant regulatory requirements applicable to the business and its activities.</p>
+        </div>
+
+        <div class="comp-bento-card">
+          <div class="comp-bento-num">03</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">AML</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">AML Compliance</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support relating to applicable Anti-Money Laundering compliance requirements and processes where applicable.</p>
+        </div>
+
+        <div class="comp-bento-card">
+          <div class="comp-bento-num">04</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">UBO</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">UBO Requirements</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support with requirements relating to Ultimate Beneficial Owner information and corporate records, where applicable.</p>
+        </div>
+
+        <div class="comp-bento-card">
+          <div class="comp-bento-num">05</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">ESR</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">ESR</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support relating to Economic Substance requirements where applicable to the business and its activities.</p>
+        </div>
+
+        <div class="comp-bento-card">
+          <div class="comp-bento-num">06</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">DOCUMENTATION</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">Corporate Documentation</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Help with maintaining and organising important corporate documents and records.</p>
+        </div>
+
+        <div class="comp-bento-card">
+          <div class="comp-bento-num">07</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">ANNUAL</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">Annual Compliance</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Ongoing support for recurring corporate and compliance requirements that businesses need to address each year.</p>
+        </div>
+
+        <div class="comp-bento-card comp-bento-wide">
+          <div class="comp-bento-num">08</div>
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">REGULATORY REPORTING</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:8px;">Regulatory Reporting</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support with relevant regulatory reporting requirements applicable to the business, its activities and applicable jurisdiction, ensuring obligations are properly addressed.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═════════════ WHY COMPLIANCE MATTERS — CHALLENGE / SOLUTION ═══ -->
+  <section style="padding:90px 0;background:var(--comp-bg);">
+    <div class="section-container">
+      <div style="text-align:center;margin-bottom:50px;">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHY IT MATTERS</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;">Compliance Is Part of <em>Running a Business</em></h2>
+      </div>
+
+      <div class="comp-cs-grid">
+        <!-- Left: challenge -->
+        <div class="comp-cs-col">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(160,131,88,0.7);text-transform:uppercase;margin-bottom:18px;">WITHOUT SUPPORT</div>
+          <div class="comp-cs-item">
+            <span style="width:22px;height:22px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-xmark" style="font-size:.65rem;color:rgba(255,255,255,.35);"></i></span>
+            <span style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65;">Compliance obligations may go unidentified or unaddressed</span>
+          </div>
+          <div class="comp-cs-item">
+            <span style="width:22px;height:22px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-xmark" style="font-size:.65rem;color:rgba(255,255,255,.35);"></i></span>
+            <span style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65;">Corporate documentation may become disorganised over time</span>
+          </div>
+          <div class="comp-cs-item">
+            <span style="width:22px;height:22px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-xmark" style="font-size:.65rem;color:rgba(255,255,255,.35);"></i></span>
+            <span style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65;">Annual and recurring requirements may be missed or delayed</span>
+          </div>
+          <div class="comp-cs-item">
+            <span style="width:22px;height:22px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-xmark" style="font-size:.65rem;color:rgba(255,255,255,.35);"></i></span>
+            <span style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65;">Regulatory and AML responsibilities may lack structure</span>
+          </div>
+        </div>
+        <!-- Right: solution -->
+        <div class="comp-cs-col" style="background:var(--bg-color);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:18px;">WITH MAVEN SUPPORT</div>
+          <div class="comp-cs-item-right">
+            <span style="width:22px;height:22px;border:1px solid rgba(160,131,88,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-check" style="font-size:.65rem;color:var(--brand-gold);"></i></span>
+            <span style="font-size:13.5px;color:var(--text-muted);line-height:1.65;">Relevant compliance obligations are identified and properly structured</span>
+          </div>
+          <div class="comp-cs-item-right">
+            <span style="width:22px;height:22px;border:1px solid rgba(160,131,88,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-check" style="font-size:.65rem;color:var(--brand-gold);"></i></span>
+            <span style="font-size:13.5px;color:var(--text-muted);line-height:1.65;">Corporate documentation is maintained in an organised manner</span>
+          </div>
+          <div class="comp-cs-item-right">
+            <span style="width:22px;height:22px;border:1px solid rgba(160,131,88,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-check" style="font-size:.65rem;color:var(--brand-gold);"></i></span>
+            <span style="font-size:13.5px;color:var(--text-muted);line-height:1.65;">Annual requirements are tracked and addressed on an ongoing basis</span>
+          </div>
+          <div class="comp-cs-item-right">
+            <span style="width:22px;height:22px;border:1px solid rgba(160,131,88,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fa-solid fa-check" style="font-size:.65rem;color:var(--brand-gold);"></i></span>
+            <span style="font-size:13.5px;color:var(--text-muted);line-height:1.65;">Regulatory and AML responsibilities are approached with greater clarity</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 supporting pillars below -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--comp-line);margin-top:24px;">
+        <div style="padding:24px 20px;text-align:center;border-right:1px solid var(--comp-line);">
+          <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-folder-open"></i></div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Stay Organised</div>
+          <div style="font-size:12px;color:var(--text-muted);">Properly maintained corporate information</div>
+        </div>
+        <div style="padding:24px 20px;text-align:center;border-right:1px solid var(--comp-line);background:var(--comp-bg);">
+          <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Understand Obligations</div>
+          <div style="font-size:12px;color:var(--text-muted);">Know what applies to your business</div>
+        </div>
+        <div style="padding:24px 20px;text-align:center;border-right:1px solid var(--comp-line);">
+          <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-rotate"></i></div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Meet Requirements</div>
+          <div style="font-size:12px;color:var(--text-muted);">Address recurring obligations on time</div>
+        </div>
+        <div style="padding:24px 20px;text-align:center;background:var(--comp-bg);">
+          <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-shield-check"></i></div>
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Be Prepared</div>
+          <div style="font-size:12px;color:var(--text-muted);">Documentation ready when needed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════ WHO WE SUPPORT (horizontal cards) ═══ -->
+  <section style="padding:90px 0;background:var(--bg-color);border-top:1px solid var(--comp-line);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="text-align:center;margin-bottom:50px;">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHO WE HELP</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">Compliance Support for Businesses <em>at Every Stage</em></h2>
+        <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin:0 auto;line-height:1.7;">Our compliance services can support businesses that are establishing a new structure, managing an existing company or expanding their operations.</p>
+      </div>
+
+      <!-- Horizontal card strip with left-border accent -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
+        <div style="padding:30px 24px;border-left:3px solid var(--brand-gold);background:var(--comp-bg);border-right:1px solid var(--comp-line);border-top:1px solid var(--comp-line);border-bottom:1px solid var(--comp-line);">
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-seedling"></i></div>
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">New Businesses</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Understand the compliance responsibilities that come with establishing your business structure in the UAE.</p>
+        </div>
+        <div style="padding:30px 24px;border-left:3px solid var(--brand-gold);background:var(--comp-bg);border-right:1px solid var(--comp-line);border-top:1px solid var(--comp-line);border-bottom:1px solid var(--comp-line);">
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-building"></i></div>
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">Established Businesses</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Keep ongoing corporate and regulatory requirements organised and properly maintained as operations continue.</p>
+        </div>
+        <div style="padding:30px 24px;border-left:3px solid var(--brand-gold);background:var(--comp-bg);border-right:1px solid var(--comp-line);border-top:1px solid var(--comp-line);border-bottom:1px solid var(--comp-line);">
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">Growing Businesses</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Review compliance requirements as your business activities, structure or operations evolve and change.</p>
+        </div>
+        <div style="padding:30px 24px;border-left:3px solid var(--brand-gold);background:var(--comp-bg);border-right:1px solid var(--comp-line);border-top:1px solid var(--comp-line);border-bottom:1px solid var(--comp-line);">
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-globe"></i></div>
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">International Businesses</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support businesses managing corporate structures and requirements across relevant jurisdictions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ OUR APPROACH — CENTRED TIMELINE ═══ -->
+  <section style="padding:90px 0;background:var(--comp-bg);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="text-align:center;margin-bottom:60px;">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ HOW WE WORK</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;">A Clearer Approach <em>to Compliance</em></h2>
+      </div>
+
+      <div class="comp-timeline">
+
+        <div class="comp-tl-row">
+          <div class="comp-tl-left">
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:4px;">STEP 01</span>
+            <strong style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);display:block;margin-bottom:6px;">Understand</strong>
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">We begin by understanding your business structure, activities and the relevant requirements that may apply to your operations.</p>
+          </div>
+          <div class="comp-tl-node">01</div>
+          <div class="comp-tl-empty"></div>
+        </div>
+
+        <div class="comp-tl-row">
+          <div class="comp-tl-empty"></div>
+          <div class="comp-tl-node">02</div>
+          <div class="comp-tl-right">
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:4px;">STEP 02</span>
+            <strong style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);display:block;margin-bottom:6px;">Identify</strong>
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">We help identify the corporate, regulatory and documentation requirements that may apply to your business based on its structure and activities.</p>
+          </div>
+        </div>
+
+        <div class="comp-tl-row">
+          <div class="comp-tl-left">
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:4px;">STEP 03</span>
+            <strong style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);display:block;margin-bottom:6px;">Organise</strong>
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">We help ensure relevant information, documentation and compliance requirements are properly organised and structured for the business.</p>
+          </div>
+          <div class="comp-tl-node">03</div>
+          <div class="comp-tl-empty"></div>
+        </div>
+
+        <div class="comp-tl-row">
+          <div class="comp-tl-empty"></div>
+          <div class="comp-tl-node">04</div>
+          <div class="comp-tl-right">
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:4px;">STEP 04</span>
+            <strong style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);display:block;margin-bottom:6px;">Maintain</strong>
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">We provide ongoing support for relevant recurring compliance and reporting requirements so your business stays organised as it continues to operate.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════ TABBED: CORPORATE / AML / UBO / ANNUAL ═══ -->
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="text-align:center;margin-bottom:40px;">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ COMPLIANCE CATEGORIES</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;">Understanding Your <em>Compliance Areas</em></h2>
+      </div>
+
+      <div class="comp-tab-bar" id="compTabBar">
+        <button class="comp-tab-btn active" onclick="switchCompTab('corporate',this)">Corporate Compliance</button>
+        <button class="comp-tab-btn" onclick="switchCompTab('aml',this)">Regulatory &amp; AML</button>
+        <button class="comp-tab-btn" onclick="switchCompTab('ubo',this)">UBO &amp; Documentation</button>
+        <button class="comp-tab-btn" onclick="switchCompTab('annual',this)">Annual &amp; Ongoing</button>
+      </div>
+
+      <!-- Tab: Corporate -->
+      <div class="comp-tab-panel active" id="tab-corporate">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+          <div>
+            <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ CORPORATE COMPLIANCE</span>
+            <h3 style="font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2rem);font-weight:400;color:var(--text-dark);line-height:1.3;margin-bottom:16px;">Keep Your Corporate Requirements <em>in Order</em></h3>
+            <p style="font-size:14.5px;color:var(--text-muted);line-height:1.75;margin-bottom:14px;">Businesses have ongoing responsibilities beyond their initial formation. Corporate compliance involves maintaining the information, records and requirements associated with the company's structure.</p>
+            <p style="font-size:14.5px;color:var(--text-muted);line-height:1.75;margin-bottom:24px;">Maven Consults helps businesses understand and manage relevant corporate compliance requirements so they can remain organised as they operate and grow.</p>
+            <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">DISCUSS YOUR REQUIREMENTS <span class="arrow-icon">↗</span></a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="padding:16px 18px;background:var(--comp-bg);border:1px solid var(--comp-line);display:flex;align-items:center;gap:14px;"><i class="fa-solid fa-circle-dot" style="color:var(--brand-gold);font-size:.7rem;"></i><span style="font-size:13.5px;color:var(--text-dark);">Corporate records maintenance</span></div>
+            <div style="padding:16px 18px;background:var(--comp-bg);border:1px solid var(--comp-line);display:flex;align-items:center;gap:14px;"><i class="fa-solid fa-circle-dot" style="color:var(--brand-gold);font-size:.7rem;"></i><span style="font-size:13.5px;color:var(--text-dark);">Corporate documentation management</span></div>
+            <div style="padding:16px 18px;background:var(--comp-bg);border:1px solid var(--comp-line);display:flex;align-items:center;gap:14px;"><i class="fa-solid fa-circle-dot" style="color:var(--brand-gold);font-size:.7rem;"></i><span style="font-size:13.5px;color:var(--text-dark);">Annual compliance requirements</span></div>
+            <div style="padding:16px 18px;background:var(--comp-bg);border:1px solid var(--comp-line);display:flex;align-items:center;gap:14px;"><i class="fa-solid fa-circle-dot" style="color:var(--brand-gold);font-size:.7rem;"></i><span style="font-size:13.5px;color:var(--text-dark);">Ongoing corporate obligations</span></div>
+            <div style="padding:16px 18px;background:var(--comp-bg);border:1px solid var(--comp-line);display:flex;align-items:center;gap:14px;"><i class="fa-solid fa-circle-dot" style="color:var(--brand-gold);font-size:.7rem;"></i><span style="font-size:13.5px;color:var(--text-dark);">Regulatory information upkeep</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: AML -->
+      <div class="comp-tab-panel" id="tab-aml">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+          <div>
+            <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ REGULATORY COMPLIANCE</span>
+            <h3 style="font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2rem);font-weight:400;color:var(--text-dark);line-height:1.3;margin-bottom:16px;">Navigate Your Regulatory Responsibilities <em>With Greater Clarity</em></h3>
+            <p style="font-size:14.5px;color:var(--text-muted);line-height:1.75;margin-bottom:14px;">Businesses operating in regulated or specialised sectors may have additional compliance responsibilities. Maven Consults provides support around relevant regulatory and AML compliance requirements.</p>
+            <div style="padding:20px 22px;border-left:3px solid var(--brand-gold);background:var(--comp-bg);margin-bottom:24px;"><span style="font-size:14px;color:var(--text-dark);font-family:var(--font-serif);font-style:italic;">The specific requirements depend on the business activity, structure and applicable jurisdiction.</span></div>
+            <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">DISCUSS YOUR REQUIREMENTS <span class="arrow-icon">↗</span></a>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="padding:22px 18px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <i class="fa-solid fa-shield-halved" style="color:var(--brand-gold);font-size:1.2rem;margin-bottom:10px;display:block;"></i>
+              <strong style="font-size:13px;color:var(--text-dark);display:block;margin-bottom:4px;">Regulatory Compliance</strong>
+              <span style="font-size:12.5px;color:var(--text-muted);">Applicable regulatory requirements for your activities</span>
+            </div>
+            <div style="padding:22px 18px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <i class="fa-solid fa-money-bill-transfer" style="color:var(--brand-gold);font-size:1.2rem;margin-bottom:10px;display:block;"></i>
+              <strong style="font-size:13px;color:var(--text-dark);display:block;margin-bottom:4px;">AML Compliance</strong>
+              <span style="font-size:12.5px;color:var(--text-muted);">Anti-Money Laundering requirements where applicable</span>
+            </div>
+            <div style="padding:22px 18px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <i class="fa-solid fa-file-lines" style="color:var(--brand-gold);font-size:1.2rem;margin-bottom:10px;display:block;"></i>
+              <strong style="font-size:13px;color:var(--text-dark);display:block;margin-bottom:4px;">Regulatory Reporting</strong>
+              <span style="font-size:12.5px;color:var(--text-muted);">Relevant reporting obligations for your business</span>
+            </div>
+            <div style="padding:22px 18px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <i class="fa-solid fa-chart-column" style="color:var(--brand-gold);font-size:1.2rem;margin-bottom:10px;display:block;"></i>
+              <strong style="font-size:13px;color:var(--text-dark);display:block;margin-bottom:4px;">ESR</strong>
+              <span style="font-size:12.5px;color:var(--text-muted);">Economic Substance requirements where applicable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: UBO -->
+      <div class="comp-tab-panel" id="tab-ubo">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+          <div>
+            <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ CORPORATE INFORMATION</span>
+            <h3 style="font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2rem);font-weight:400;color:var(--text-dark);line-height:1.3;margin-bottom:16px;">Keep Essential Business Information <em>Properly Maintained</em></h3>
+            <p style="font-size:14.5px;color:var(--text-muted);line-height:1.75;margin-bottom:24px;">Accurate corporate information and documentation are an important part of maintaining a compliant business structure. Maven Consults supports businesses with relevant UBO requirements and corporate documentation, where applicable.</p>
+            <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">DISCUSS YOUR REQUIREMENTS <span class="arrow-icon">↗</span></a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);display:block;margin-bottom:8px;">UBO Requirements</strong>
+              <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support with relevant Ultimate Beneficial Owner information and requirements applicable to the business structure.</p>
+            </div>
+            <div style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);display:block;margin-bottom:8px;">Corporate Documentation</strong>
+              <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Maintain important corporate documents and records in a structured and accessible manner.</p>
+            </div>
+            <div style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);">
+              <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);display:block;margin-bottom:8px;">Business Information</strong>
+              <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Keep relevant company information organised and accessible when required by the business or applicable authorities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Annual -->
+      <div class="comp-tab-panel" id="tab-annual">
+        <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;">
+          <div>
+            <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ ONGOING SUPPORT</span>
+            <h3 style="font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2rem);font-weight:400;color:var(--text-dark);line-height:1.3;margin-bottom:16px;">Compliance Doesn't End <em>After Company Formation</em></h3>
+            <p style="font-size:14.5px;color:var(--text-muted);line-height:1.75;margin-bottom:14px;">Many business requirements continue after a company has been established. Maven Consults helps businesses stay aware of recurring compliance responsibilities and provides ongoing support for relevant annual requirements and regulatory reporting.</p>
+            <div style="padding:20px 22px;border-left:3px solid var(--brand-gold);background:var(--comp-bg);margin-bottom:24px;">
+              <span style="font-family:var(--font-serif);font-size:1.05rem;color:var(--text-dark);font-style:italic;">Stay organised today. Be prepared for what comes next.</span>
+            </div>
+            <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">DISCUSS YOUR REQUIREMENTS <span class="arrow-icon">↗</span></a>
+          </div>
+          <div style="background:var(--text-dark);padding:32px 28px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:20px;">WHAT MAVEN CAN SUPPORT</div>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div style="display:flex;align-items:center;gap:14px;"><span style="width:24px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:13px;color:rgba(255,255,255,.65);">Annual compliance tracking</span></div>
+              <div style="display:flex;align-items:center;gap:14px;"><span style="width:24px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:13px;color:rgba(255,255,255,.65);">Recurring obligation management</span></div>
+              <div style="display:flex;align-items:center;gap:14px;"><span style="width:24px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:13px;color:rgba(255,255,255,.65);">Regulatory reporting support</span></div>
+              <div style="display:flex;align-items:center;gap:14px;"><span style="width:24px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:13px;color:rgba(255,255,255,.65);">Corporate documentation updates</span></div>
+              <div style="display:flex;align-items:center;gap:14px;"><span style="width:24px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:13px;color:rgba(255,255,255,.65);">Ongoing compliance coordination</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ COMPLIANCE CHECKPOINT CHECKLIST ═══ -->
+  <section style="padding:90px 0;background:var(--comp-bg);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:start;">
+        <div style="position:sticky;top:80px;">
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ YOUR BUSINESS</span>
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:16px;">Is Your Business Ready for Its <em>Ongoing Obligations?</em></h2>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:24px;">A business can be operational while still having important compliance requirements to manage. Consider the areas below and speak with Maven if any require attention.</p>
+          <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding:12px 24px;font-size:11px;">DISCUSS YOUR COMPLIANCE ↗</a>
+        </div>
+
+        <div class="comp-check-list">
+          <div class="comp-check-item">
+            <div class="comp-check-box"><i class="fa-solid fa-check"></i></div>
+            <span style="font-size:14px;color:var(--text-dark);line-height:1.5;">Relevant corporate documentation properly maintained</span>
+          </div>
+          <div class="comp-check-item">
+            <div class="comp-check-box"><i class="fa-solid fa-check"></i></div>
+            <span style="font-size:14px;color:var(--text-dark);line-height:1.5;">UBO information addressed where applicable</span>
+          </div>
+          <div class="comp-check-item">
+            <div class="comp-check-box"><i class="fa-solid fa-check"></i></div>
+            <span style="font-size:14px;color:var(--text-dark);line-height:1.5;">Applicable compliance requirements identified</span>
+          </div>
+          <div class="comp-check-item">
+            <div class="comp-check-box"><i class="fa-solid fa-check"></i></div>
+            <span style="font-size:14px;color:var(--text-dark);line-height:1.5;">Annual obligations being tracked and addressed</span>
+          </div>
+          <div class="comp-check-item">
+            <div class="comp-check-box"><i class="fa-solid fa-check"></i></div>
+            <span style="font-size:14px;color:var(--text-dark);line-height:1.5;">Relevant regulatory reporting requirements understood</span>
+          </div>
+          <div class="comp-check-item">
+            <div class="comp-check-box"><i class="fa-solid fa-check"></i></div>
+            <span style="font-size:14px;color:var(--text-dark);line-height:1.5;">Ongoing corporate responsibilities properly organised</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════ WHY MAVEN — FEATURE BARS ═══ -->
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:72px;align-items:start;">
+        <div style="position:sticky;top:80px;">
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHY MAVEN</span>
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:16px;">Compliance Support <em>Without the Complexity</em></h2>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;">Maven Consults treats compliance as an ongoing part of running a business, not a one-time setup task. We work alongside your business to keep relevant requirements organised and properly managed.</p>
+        </div>
+        <div id="compFeatBars">
+          <div class="comp-feat-bar">
+            <span class="comp-feat-bar-label">Expertise</span>
+            <div class="comp-feat-bar-fill"><div class="comp-feat-bar-fill-inner" style="width:0;" data-width="88%"></div></div>
+            <span class="comp-feat-bar-text">Practical support across corporate and regulatory compliance requirements.</span>
+          </div>
+          <div class="comp-feat-bar">
+            <span class="comp-feat-bar-label">Clarity</span>
+            <div class="comp-feat-bar-fill"><div class="comp-feat-bar-fill-inner" style="width:0;" data-width="92%"></div></div>
+            <span class="comp-feat-bar-text">Clear communication around relevant requirements and responsibilities.</span>
+          </div>
+          <div class="comp-feat-bar">
+            <span class="comp-feat-bar-label">Ongoing Support</span>
+            <div class="comp-feat-bar-fill"><div class="comp-feat-bar-fill-inner" style="width:0;" data-width="95%"></div></div>
+            <span class="comp-feat-bar-text">Compliance treated as an ongoing business requirement, not a one-time task.</span>
+          </div>
+          <div class="comp-feat-bar">
+            <span class="comp-feat-bar-label">Business-Focused</span>
+            <div class="comp-feat-bar-fill"><div class="comp-feat-bar-fill-inner" style="width:0;" data-width="85%"></div></div>
+            <span class="comp-feat-bar-text">Our approach considers your business structure, activities and objectives.</span>
+          </div>
+          <div class="comp-feat-bar">
+            <span class="comp-feat-bar-label">One Partner</span>
+            <div class="comp-feat-bar-fill"><div class="comp-feat-bar-fill-inner" style="width:0;" data-width="90%"></div></div>
+            <span class="comp-feat-bar-text">Bring relevant corporate and compliance support together through one professional partner.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════ FAQ ═══ -->
+  <section style="padding:90px 0;background:var(--comp-bg);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container" style="max-width:860px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:50px;">
+        <span class="label-pill" style="margin-bottom:14px;">✦ FREQUENTLY ASKED QUESTIONS</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);">Compliance Services — <em>Common Questions</em></h2>
+      </div>
+      <div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>What are compliance services?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">Compliance services help businesses understand, organise and manage relevant corporate, regulatory, documentation and reporting requirements applicable to their business structure and activities.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>Do I need compliance support after setting up my company?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">Company formation is only the beginning. Businesses may have ongoing corporate and regulatory responsibilities after establishment, depending on their structure, activities and applicable jurisdiction.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>What does Maven's compliance service cover?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">Maven's compliance offering can include corporate compliance, regulatory compliance, AML compliance, UBO requirements, ESR where applicable, corporate documentation, annual compliance and regulatory reporting.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>Does every business have the same compliance requirements?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">No. Requirements can vary depending on the business structure, activities and applicable jurisdiction. Maven can help identify the requirements relevant to your specific business situation.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>Can Maven help with ongoing compliance?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">Yes. Maven's compliance services are designed to support businesses with relevant ongoing and recurring requirements, not just initial setup tasks.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>Does Maven provide AML compliance support?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">AML compliance support is included within the compliance service offering where applicable to the business and its activities.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>What are UBO requirements?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">UBO requirements relate to information concerning the Ultimate Beneficial Owner of a business. The specific requirements depend on the applicable business structure and jurisdiction.</div></div>
+        </div>
+        <div class="comp-faq-item">
+          <div class="comp-faq-q" onclick="toggleCompFaq(this)"><span>Is ESR applicable to every business?</span><span class="comp-faq-icon">+</span></div>
+          <div class="comp-faq-a"><div class="comp-faq-a-inner">No. Economic Substance Requirements may apply depending on the relevant business activities and circumstances. Maven can help determine whether ESR applies based on the business situation.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════ RELATED SERVICES ═══ -->
+  <section style="padding:80px 0;background:var(--bg-color);border-bottom:1px solid var(--comp-line);">
+    <div class="section-container">
+      <div style="text-align:center;margin-bottom:38px;">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ MORE FROM MAVEN</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(1.7rem,2.8vw,2.1rem);font-weight:400;color:var(--text-dark);">Complete Business Support, <em>Under One Roof</em></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;">
+        <a href="accounting-bookkeeping.html" style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--comp-line)'">
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 01</span>
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Accounting &amp; Bookkeeping</strong>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Keep your financial records organised with professional accounting support.</p>
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+        </a>
+        <a href="vat-services.html" style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--comp-line)'">
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 02</span>
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">VAT Services</strong>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Registration, return filing, compliance and advisory support for VAT.</p>
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+        </a>
+        <a href="company-formation.html" style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--comp-line)'">
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 03</span>
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Company Formation</strong>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Establish your UAE business with the right structure and jurisdiction.</p>
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+        </a>
+        <a href="pro-services.html" style="padding:24px 22px;border:1px solid var(--comp-line);background:var(--comp-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--comp-line)'">
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 04</span>
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">PRO Services</strong>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Simplify government procedures, documentation and corporate administration.</p>
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ FINAL CTA ═══ -->
+    <!-- SECTION: ULTRA MINIMAL BLENDING CTA BANNER -->
+  <section class="services-section" id="final-cta" style="padding: 90px 0; background: var(--bg-color); border-top: 1px solid rgba(160, 131, 88, 0.15); border-bottom: 1px solid rgba(160, 131, 88, 0.15);">
+    <div class="section-container" style="max-width: 860px; margin: 0 auto; text-align: center;">
+      
+      <!-- Minimal Label Pill -->
+      <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 18px; background: rgba(160, 131, 88, 0.08); border: 1px solid rgba(160, 131, 88, 0.22); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;">
+        ✦ TAKE THE NEXT STEP
+      </span>
+
+      <!-- Title -->
+      <h2 style="font-family: var(--font-serif); font-size: clamp(2.2rem, 3.8vw, 3.2rem); color: var(--text-dark); font-weight: 400; line-height: 1.18; margin-bottom: 18px; letter-spacing: -0.3px;">
+        Ready to Build Your Business <br>
+        <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold); font-weight: 400;">in the UAE &amp; Globally?</em>
+      </h2>
+
+      <!-- Description -->
+      <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.78; margin-bottom: 28px; max-width: 720px; margin-left: auto; margin-right: auto;">
+        Tell us what you are looking to achieve. Maven Consults helps founders, investors, and enterprise leaders evaluate jurisdictions, select appropriate structures, and execute setup with complete legal precision.
+      </p>
+
+      <!-- 3 Minimal Bullet Highlights Strip -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; font-size: 13px; color: var(--text-muted);">
+        <span><strong style="color: var(--brand-gold);">✦</strong> Structured Jurisdiction Scoping</span>
+        <span style="color: rgba(160,131,88,0.3);">&bull;</span>
+        <span><strong style="color: var(--brand-gold);">✦</strong> Fast-Track Government Clearance</span>
+        <span style="color: rgba(160,131,88,0.3);">&bull;</span>
+        <span><strong style="color: var(--brand-gold);">✦</strong> 100% Confidential Advisory</span>
+      </div>
+
+      <!-- Single Primary Action Ribbon -->
+      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 24px;">
+        <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding: 15px 38px; font-size: 11px; letter-spacing: 2px; text-decoration: none;">
+          BOOK CONSULTATION ↗
+        </a>
+      </div>
+
+      <!-- Minimal Compliance Line -->
+      <span style="font-size: 11px; color: var(--text-muted); display: inline-block;">
+        <i class="fa-solid fa-lock" style="font-size: 10px; color: var(--brand-gold); margin-right: 4px;"></i> Strict NDA &amp; UAE Non-Disclosure Standards Applied
+      </span>
+
+    </div>
+  </section>
+<footer style="padding:50px 0 24px 0;background:var(--bg-color);border-top:1px solid rgba(160,131,88,0.25);position:relative;overflow:hidden;">
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-family:'Bodoni Moda',serif;font-size:clamp(4rem,10vw,8rem);color:rgba(160,131,88,0.025);pointer-events:none;white-space:nowrap;user-select:none;letter-spacing:4px;">MAVEN CONSULTS</div>
+    <div class="section-container" style="position:relative;z-index:2;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start;padding-bottom:36px;border-bottom:1px solid rgba(160,131,88,0.2);">
+        <div><span style="font-size:10.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:14px;display:inline-block;">✦ MAVEN CONSULTS</span><h3 style="font-family:'Bodoni Moda',serif;font-size:clamp(1.8rem,3.2vw,2.6rem);color:var(--text-dark);font-weight:400;line-height:1.25;margin-bottom:16px;">Structured Solutions, <em>Built Around You.</em></h3><p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;max-width:480px;margin-bottom:24px;">Business setup, specialised licensing, corporate services and compliance support across the UAE and selected international jurisdictions.</p><a href="contact.html" class="arrow-link" style="font-size:12px;letter-spacing:2.2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">SCHEDULE A CONSULTATION <span class="arrow-icon">↗</span></a></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">PRACTICES</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="company-formation.html" style="color:var(--text-muted);text-decoration:none;">Company Formation</a></li><li><a href="licensing.html" style="color:var(--text-muted);text-decoration:none;">Specialised Licensing</a></li><li><a href="offshore-company-formation.html" style="color:var(--text-muted);text-decoration:none;">Offshore Setup</a></li><li><a href="pro-services.html" style="color:var(--text-muted);text-decoration:none;">PRO &amp; Visas</a></li><li><a href="compliance-services.html" style="color:var(--text-muted);text-decoration:none;">Compliance Services</a></li></ul></div>
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">LICENSING</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="licensing/forex-cfd.html" style="color:var(--text-muted);text-decoration:none;">Forex &amp; CFD</a></li><li><a href="licensing/crypto-virtual-assets.html" style="color:var(--text-muted);text-decoration:none;">Crypto &amp; Virtual Assets</a></li><li><a href="licensing/payments-fintech.html" style="color:var(--text-muted);text-decoration:none;">Payments &amp; Fintech</a></li><li><a href="licensing/online-gambling.html" style="color:var(--text-muted);text-decoration:none;">Online Gambling</a></li><li><a href="licensing/trust-formation.html" style="color:var(--text-muted);text-decoration:none;">Trust Formation</a></li></ul></div>
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">NAVIGATION</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="index.html" style="color:var(--text-muted);text-decoration:none;">Home</a></li><li><a href="about.html" style="color:var(--text-muted);text-decoration:none;">About Us</a></li><li><a href="services.html" style="color:var(--text-muted);text-decoration:none;">Services</a></li><li><a href="blog.html" style="color:var(--text-muted);text-decoration:none;">Insights</a></li><li><a href="contact.html" style="color:var(--text-muted);text-decoration:none;">Contact</a></li></ul></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(160,131,88,0.15);flex-wrap:wrap;gap:16px;"><div style="display:flex;align-items:center;gap:20px;font-size:11px;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;"><span>CORPORATE</span> • <span>AML</span> • <span>UBO</span> • <span>ESR</span> • <span>ANNUAL COMPLIANCE</span></div><div style="font-size:11.5px;color:var(--brand-gold);font-weight:600;letter-spacing:1.5px;">✦ UAE COMPLIANCE SERVICES</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 0 24px;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--text-muted);"><div>© 2026 Maven Consults. All rights reserved.</div><div style="display:flex;gap:24px;"><a href="#" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a><a href="#" style="color:var(--text-muted);text-decoration:none;">Terms of Business</a><a href="#" style="color:var(--text-muted);text-decoration:none;">Disclaimer</a></div></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── FAQ ── */
+    function toggleCompFaq(qEl) {
+      const a = qEl.nextElementSibling, ic = qEl.querySelector('.comp-faq-icon');
+      const open = a.classList.contains('open');
+      document.querySelectorAll('.comp-faq-a').forEach(x => x.classList.remove('open'));
+      document.querySelectorAll('.comp-faq-icon').forEach(x => x.textContent = '+');
+      if (!open) { a.classList.add('open'); ic.textContent = '×'; }
+    }
+
+    /* ── Tab switcher ── */
+    function switchCompTab(id, btn) {
+      document.querySelectorAll('.comp-tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.comp-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    /* ── Feature bar animation on scroll ── */
+    const featBars = document.querySelectorAll('.comp-feat-bar-fill-inner');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.width;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    featBars.forEach(bar => observer.observe(bar));
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,1207 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VAT Services UAE | Maven Consults</title>
+
+  <meta name="description" content="Professional VAT registration, return filing, compliance, advisory and deregistration support for UAE businesses. Maven Consults simplifies your VAT responsibilities.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+    :root { --vat-line: rgba(160,131,88,.18); --vat-bg: rgba(160,131,88,.025); }
+
+
+
+    /* â”€â”€ FAQ â”€â”€ */
+
+    .vat-faq-item { border-top: 1px solid var(--vat-line); }
+
+    .vat-faq-item:last-child { border-bottom: 1px solid var(--vat-line); }
+
+    .vat-faq-q { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px 0; cursor:pointer; font-family:var(--font-serif); font-size:1.02rem; color:var(--text-dark); transition:color .25s; }
+
+    .vat-faq-q:hover { color:var(--brand-gold); }
+
+    .vat-faq-icon { font-size:18px; color:var(--brand-gold); flex-shrink:0; }
+
+    .vat-faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+
+    .vat-faq-a.open { max-height:240px; }
+
+    .vat-faq-a-inner { padding:0 40px 20px 0; font-size:13.5px; color:var(--text-muted); line-height:1.75; }
+
+
+
+    /* â”€â”€ Editorial service rows â”€â”€ */
+
+    .vat-svc-row { display:grid; grid-template-columns:120px 1fr auto; gap:32px; align-items:start; padding:36px 0; border-top:1px solid var(--vat-line); transition:background .25s; }
+
+    .vat-svc-row:last-child { border-bottom: 1px solid var(--vat-line); }
+
+    .vat-svc-row:hover { background:var(--vat-bg); margin:0 -24px; padding:36px 24px; }
+
+    .vat-svc-big-num { font-family:'Bodoni Moda',serif; font-size:clamp(2.5rem,4vw,3.5rem); color:rgba(160,131,88,.18); line-height:1; font-weight:400; }
+
+
+
+    /* â”€â”€ Why matters horizontal cards â”€â”€ */
+
+    .vat-why-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--vat-line); }
+
+    .vat-why-card { padding:30px 24px; border-right:1px solid var(--vat-line); position:relative; overflow:hidden; }
+
+    .vat-why-card:last-child { border-right:none; }
+
+    .vat-why-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--brand-gold); transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
+
+    .vat-why-card:hover::before { transform:scaleX(1); }
+
+
+
+    /* â”€â”€ Who we support — stage selector â”€â”€ */
+
+    .vat-stage-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+
+    .vat-stage-card { padding:28px 24px; border:1.5px solid var(--vat-line); cursor:pointer; transition:all .3s ease; background:var(--bg-color); }
+
+    .vat-stage-card.active { border-color:var(--brand-gold); background:rgba(160,131,88,.04); }
+
+    .vat-stage-card:hover { border-color:rgba(160,131,88,.5); }
+
+
+
+    /* â”€â”€ Approach vertical accordion â”€â”€ */
+
+    .vat-step-item { border-top:1px solid var(--vat-line); }
+
+    .vat-step-item:last-child { border-bottom:1px solid var(--vat-line); }
+
+    .vat-step-header { display:grid; grid-template-columns:60px 1fr 28px; gap:20px; align-items:center; padding:22px 0; cursor:pointer; }
+
+    .vat-step-header:hover .vat-step-title { color:var(--brand-gold); }
+
+    .vat-step-num-badge { width:44px; height:44px; border:1px solid rgba(160,131,88,.35); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-serif); font-size:.95rem; color:var(--brand-gold); transition:all .3s; }
+
+    .vat-step-item.open .vat-step-num-badge { background:var(--brand-gold); color:#fff; border-color:var(--brand-gold); }
+
+    .vat-step-title { font-family:var(--font-serif); font-size:1.15rem; color:var(--text-dark); transition:color .25s; }
+
+    .vat-step-toggle { font-size:18px; color:var(--brand-gold); }
+
+    .vat-step-body { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+
+    .vat-step-body.open { max-height:200px; }
+
+    .vat-step-body-inner { padding:0 60px 22px; font-size:14px; color:var(--text-muted); line-height:1.75; }
+
+
+
+    /* â”€â”€ Integration pullquote section â”€â”€ */
+
+    .vat-integration { padding:90px 0; background:var(--text-dark); position:relative; overflow:hidden; }
+
+    .vat-integration::before { content:'VAT'; position:absolute; right:-2%; top:50%; transform:translateY(-50%); font-family:'Bodoni Moda',serif; font-size:clamp(8rem,18vw,16rem); color:rgba(255,255,255,.025); pointer-events:none; letter-spacing:4px; line-height:1; }
+
+
+
+    /* â”€â”€ Related cards â”€â”€ */
+
+    .vat-related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+
+    .vat-related-card { padding:26px 22px; border:1px solid var(--vat-line); background:var(--vat-bg); text-decoration:none; display:flex; flex-direction:column; gap:8px; transition:border-color .3s; }
+
+    .vat-related-card:hover { border-color:rgba(160,131,88,.5); }
+
+
+
+    @media(max-width:900px){
+
+      .vat-svc-row { grid-template-columns:60px 1fr; }
+
+      .vat-svc-row > a { grid-column: 1 / -1; }
+
+      .vat-why-cards { grid-template-columns:1fr 1fr; }
+
+      .vat-why-card:nth-child(2) { border-right:none; }
+
+      .vat-why-card:nth-child(3),.vat-why-card:nth-child(4) { border-top:1px solid var(--vat-line); }
+
+      .vat-stage-grid { grid-template-columns:1fr; }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â• -->
+
+  <div class="hero-wrapper services-hero-wrapper" id="home" style="min-height:85vh;">
+
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="logo">MAVEN</a>
+      </div>
+
+      <nav class="nav-center" id="navMenu">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        
+        <!-- 1. OFFSHORE FORMATION DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="offshore-company-formation.html" class="nav-link nav-dropdown-trigger">
+            OFFSHORE FORMATION <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="jafza-offshore.html"><span class="mega-bullet">✦</span> JAFZA Offshore</a></li>
+              <li><a href="rak-offshore.html"><span class="mega-bullet">✦</span> RAK Offshore</a></li>
+              <li><a href="ajman-offshore.html"><span class="mega-bullet">✦</span> Ajman Offshore</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. LICENSING DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="licensing.html" class="nav-link nav-dropdown-trigger">
+            LICENSING <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="licensing.html"><span class="mega-bullet">✦</span> Licensing Overview</a></li>
+              <li><a href="licensing/forex-cfd.html"><span class="mega-bullet">✦</span> Forex &amp; CFD</a></li>
+              <li><a href="licensing/crypto-virtual-assets.html"><span class="mega-bullet">✦</span> Crypto &amp; Virtual Assets</a></li>
+              <li><a href="licensing/payments-fintech.html"><span class="mega-bullet">✦</span> Payments &amp; Fintech</a></li>
+              <li><a href="licensing/online-gambling.html"><span class="mega-bullet">✦</span> Online Gambling</a></li>
+              <li><a href="licensing/trust-formation.html"><span class="mega-bullet">✦</span> Trust Formation</a></li>
+              <li><a href="licensing/foundation-holding-structures.html"><span class="mega-bullet">✦</span> Foundations &amp; Holding</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. COMPANY FORMATION DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="company-formation.html" class="nav-link nav-dropdown-trigger">
+            COMPANY FORMATION <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="dubai-free-zone.html"><span class="mega-bullet">✦</span> Dubai Free Zones</a></li>
+              <li><a href="sharjah-free-zone.html"><span class="mega-bullet">✦</span> Sharjah Free Zones</a></li>
+              <li><a href="rak-free-zone.html"><span class="mega-bullet">✦</span> RAK Free Zones</a></li>
+              <li><a href="ajman-free-zone.html"><span class="mega-bullet">✦</span> Ajman Free Zones</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. PRO & COMPLIANCE DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="pro-services.html" class="nav-link nav-dropdown-trigger active">
+            PRO &amp; COMPLIANCE <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="pro-services.html"><span class="mega-bullet">✦</span> PRO Services</a></li>
+              <li><a href="visa-services.html"><span class="mega-bullet">✦</span> Visa Services</a></li>
+              <li><a href="accounting-bookkeeping.html"><span class="mega-bullet">✦</span> Accounting &amp; Bookkeeping</a></li>
+              <li><a href="vat-services.html"><span class="mega-bullet">✦</span> VAT Services</a></li>
+              <li><a href="compliance-services.html"><span class="mega-bullet">✦</span> Compliance Services</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="blog.html" class="nav-link">BLOG</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="contact.html" class="btn-ribbon nav-btn-compact">BOOK CONSULTATION ↗</a>
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+
+
+    <main class="hero-main" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px var(--container-padding, 40px) 40px var(--container-padding, 40px); position: relative; z-index: 2; min-height: 70vh; justify-content: center;">
+      <div class="hero-reveal" style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; padding: 6px 18px; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+          ✦ UAE FEDERAL TAX AUTHORITY (FTA) COMPLIANCE
+        </span>
+
+        <h1 style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: clamp(2.3rem, 4.2vw, 3.6rem); font-weight: 400; color: var(--text-dark, #141414); line-height: 1.16; margin-bottom: 18px; letter-spacing: -0.5px;">
+          UAE VAT Registration & <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold, #a08358); font-weight: 400;">Filing Compliance.</em>
+        </h1>
+
+        <p style="font-size: 15.5px; color: var(--text-muted, #555); line-height: 1.78; max-width: 720px; margin-bottom: 28px;">
+          Ensure complete compliance with UAE Federal Tax Authority (FTA) regulations through expert VAT registration, quarterly return filings, tax audits, and VAT refund advisory.
+        </p>
+
+        <!-- CTA Group -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+          <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding: 13px 32px; font-size: 11px; letter-spacing: 2px;">
+            BOOK CONSULTATION ↗
+          </a>
+          
+        </div>
+
+        <!-- 5 Metric Ribbon Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; width: 100%; max-width: 920px;">
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">REGULATOR</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">FTA Authorized</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">THRESHOLD</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Mandatory AED 375k</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">FILING</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Quarterly Return Audits</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">REFUNDS</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Tourist & Business Refunds</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">PENALTY SHIELD</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">100% Error Prevention</strong>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="sub-peek-section hero-reveal"><h2 class="sub-peek-title">VAT REGISTRATION · RETURN FILING · COMPLIANCE · ADVISORY · DEREGISTRATION</h2></div>
+
+  </div>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• INTRODUCTION â•â•â• -->
+
+  <section id="introduction" style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--vat-line);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1fr 1.65fr;gap:72px;align-items:start;">
+
+
+
+        <div style="position:sticky;top:80px;">
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ VAT SUPPORT</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:20px;">Stay on Top of Your <em>VAT Responsibilities</em></h2>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">BOOK A CONSULTATION <span class="arrow-icon">↗</span></a>
+
+        </div>
+
+
+
+        <div>
+
+          <p style="font-size:15.5px;color:var(--text-muted);line-height:1.8;margin-bottom:18px;">VAT can become an important part of managing a business in the UAE. From registration and return filing to ongoing compliance, businesses need to understand and manage their VAT responsibilities effectively.</p>
+
+          <p style="font-size:15.5px;color:var(--text-muted);line-height:1.8;margin-bottom:32px;">Maven Consults provides practical VAT support designed to help businesses manage these requirements with greater clarity and confidence.</p>
+
+
+
+          <!-- Five VAT pillars inline strip -->
+
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--vat-line);">
+
+            <div style="padding:18px 12px;text-align:center;border-right:1px solid var(--vat-line);">
+
+              <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:6px;"><i class="fa-solid fa-file-circle-plus"></i></div>
+
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--text-dark);text-transform:uppercase;line-height:1.3;">Registration</div>
+
+            </div>
+
+            <div style="padding:18px 12px;text-align:center;border-right:1px solid var(--vat-line);background:var(--vat-bg);">
+
+              <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:6px;"><i class="fa-solid fa-file-invoice"></i></div>
+
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--text-dark);text-transform:uppercase;line-height:1.3;">Return Filing</div>
+
+            </div>
+
+            <div style="padding:18px 12px;text-align:center;border-right:1px solid var(--vat-line);">
+
+              <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:6px;"><i class="fa-solid fa-shield-halved"></i></div>
+
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--text-dark);text-transform:uppercase;line-height:1.3;">Compliance</div>
+
+            </div>
+
+            <div style="padding:18px 12px;text-align:center;border-right:1px solid var(--vat-line);background:var(--vat-bg);">
+
+              <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:6px;"><i class="fa-solid fa-comments-dollar"></i></div>
+
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--text-dark);text-transform:uppercase;line-height:1.3;">Advisory</div>
+
+            </div>
+
+            <div style="padding:18px 12px;text-align:center;">
+
+              <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:6px;"><i class="fa-solid fa-file-circle-minus"></i></div>
+
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--text-dark);text-transform:uppercase;line-height:1.3;">Deregistration</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• VAT SERVICES — EDITORIAL ROWS â•â•â• -->
+
+  <section id="vat-services" style="padding:90px 0;background:var(--vat-bg);border-bottom:1px solid var(--vat-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:52px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ OUR VAT SERVICES</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">Support Across <em>Your VAT Journey</em></h2>
+
+      </div>
+
+
+
+      <div style="background:var(--bg-color);padding:0 32px;border:1px solid var(--vat-line);">
+
+
+
+        <div class="vat-svc-row">
+
+          <div class="vat-svc-big-num">01</div>
+
+          <div>
+
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">VAT REGISTRATION</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--text-dark);margin-bottom:10px;">Get Registered With Confidence</h3>
+
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;max-width:580px;">Support businesses through the VAT registration process and help them understand the requirements involved in establishing their VAT position.</p>
+
+          </div>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11px;letter-spacing:1.8px;font-weight:700;white-space:nowrap;padding-top:8px;">ENQUIRE ↗</a>
+
+        </div>
+
+
+
+        <div class="vat-svc-row">
+
+          <div class="vat-svc-big-num">02</div>
+
+          <div>
+
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">VAT RETURN FILING</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--text-dark);margin-bottom:10px;">Keep Your VAT Returns Organised</h3>
+
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;max-width:580px;">Support with VAT return filing and the information required to manage ongoing VAT obligations in a structured and organised manner.</p>
+
+          </div>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11px;letter-spacing:1.8px;font-weight:700;white-space:nowrap;padding-top:8px;">ENQUIRE ↗</a>
+
+        </div>
+
+
+
+        <div class="vat-svc-row">
+
+          <div class="vat-svc-big-num">03</div>
+
+          <div>
+
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">VAT COMPLIANCE</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--text-dark);margin-bottom:10px;">Stay Aligned With Your VAT Requirements</h3>
+
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;max-width:580px;">Ongoing support to help businesses understand and manage their VAT compliance responsibilities as their operations continue to develop.</p>
+
+          </div>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11px;letter-spacing:1.8px;font-weight:700;white-space:nowrap;padding-top:8px;">ENQUIRE ↗</a>
+
+        </div>
+
+
+
+        <div class="vat-svc-row">
+
+          <div class="vat-svc-big-num">04</div>
+
+          <div>
+
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">VAT ADVISORY</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--text-dark);margin-bottom:10px;">Make Better VAT Decisions</h3>
+
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;max-width:580px;">Practical guidance for businesses seeking clarity around VAT-related requirements, business transactions and VAT situations.</p>
+
+          </div>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11px;letter-spacing:1.8px;font-weight:700;white-space:nowrap;padding-top:8px;">ENQUIRE ↗</a>
+
+        </div>
+
+
+
+        <div class="vat-svc-row">
+
+          <div class="vat-svc-big-num">05</div>
+
+          <div>
+
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:8px;">VAT DEREGISTRATION</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--text-dark);margin-bottom:10px;">Manage the End of Your VAT Registration</h3>
+
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;max-width:580px;">Support for businesses that need to understand and manage VAT deregistration requirements when the time is appropriate.</p>
+
+          </div>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11px;letter-spacing:1.8px;font-weight:700;white-space:nowrap;padding-top:8px;">ENQUIRE ↗</a>
+
+        </div>
+
+
+
+        <div class="vat-svc-row">
+
+          <div class="vat-svc-big-num" style="color:rgba(160,131,88,.1);">06</div>
+
+          <div>
+
+            <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(160,131,88,.5);text-transform:uppercase;display:block;margin-bottom:8px;">PENALTY ASSISTANCE</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.25rem;color:var(--text-dark);margin-bottom:10px;">Get Support When VAT Issues Arise</h3>
+
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;max-width:580px;">Assistance with VAT-related penalty matters may be available where this service is confirmed as part of Maven's offering. Enquire directly for more information.</p>
+
+          </div>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11px;letter-spacing:1.8px;font-weight:700;white-space:nowrap;padding-top:8px;">ENQUIRE ↗</a>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHY VAT SUPPORT MATTERS â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:48px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHY IT MATTERS</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">VAT Is More Than a <em>Registration Requirement</em></h2>
+
+        <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin:0 auto;line-height:1.7;">Managing VAT effectively is part of running a compliant business. Registration, return filing and ongoing compliance all require attention as your business operates and develops. With the right support, businesses can approach their VAT responsibilities with greater clarity.</p>
+
+      </div>
+
+
+
+      <div class="vat-why-cards">
+
+        <div class="vat-why-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-diagram-project"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Clearer Processes</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Understand what is required and when, across your registration, filing and compliance cycle.</p>
+
+        </div>
+
+        <div class="vat-why-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-layer-group"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Better Organisation</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Keep your VAT-related information, documentation and processes structured and accessible.</p>
+
+        </div>
+
+        <div class="vat-why-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Ongoing Support</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Have professional guidance available as your business requirements and VAT position develop over time.</p>
+
+        </div>
+
+        <div class="vat-why-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-scale-balanced"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Compliance Awareness</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Stay informed about the VAT responsibilities relevant to your business and its ongoing operations.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHO WE SUPPORT â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--vat-bg);border-top:1px solid var(--vat-line);border-bottom:1px solid var(--vat-line);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:start;">
+
+
+
+        <div style="position:sticky;top:80px;">
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHO WE HELP</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:16px;">VAT Support for Businesses at <em>Different Stages</em></h2>
+
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:24px;">Our VAT services can support businesses at various points in their journey, from first registration to ongoing compliance management.</p>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">SPEAK WITH THE TEAM <span class="arrow-icon">↗</span></a>
+
+        </div>
+
+
+
+        <div class="vat-stage-grid">
+
+          <div class="vat-stage-card active" id="stageCard1" onclick="selectVatStage(1)">
+
+            <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-seedling"></i></div>
+
+            <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 01</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Starting a Business</h3>
+
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;" id="stageDesc1">Understanding VAT requirements as part of establishing a new business in the UAE.</p>
+
+          </div>
+
+          <div class="vat-stage-card" id="stageCard2" onclick="selectVatStage(2)">
+
+            <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-building"></i></div>
+
+            <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 02</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Already Operating</h3>
+
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;">Managing ongoing VAT registration, return filing and compliance requirements for an existing business.</p>
+
+          </div>
+
+          <div class="vat-stage-card" id="stageCard3" onclick="selectVatStage(3)">
+
+            <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+
+            <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 03</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Growing or Expanding</h3>
+
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;">Reviewing VAT considerations as business activities, transactions and operations change or scale.</p>
+
+          </div>
+
+          <div class="vat-stage-card" id="stageCard4" onclick="selectVatStage(4)">
+
+            <div style="font-size:1.1rem;color:var(--brand-gold);margin-bottom:8px;"><i class="fa-solid fa-arrows-rotate"></i></div>
+
+            <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 04</span>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Changing Structure</h3>
+
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin:0;">Understanding VAT requirements when business circumstances or corporate structures change.</p>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• OUR APPROACH — VERTICAL ACCORDION â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--vat-line);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:72px;align-items:start;">
+
+
+
+        <div style="position:sticky;top:80px;">
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ HOW WE HELP</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:16px;">A Clearer Approach <em>to VAT</em></h2>
+
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;">We start by understanding your business before identifying the support you need and assisting through the relevant process — with ongoing support available where required.</p>
+
+        </div>
+
+
+
+        <div>
+
+          <!-- Step 01 — open by default -->
+
+          <div class="vat-step-item open" id="vatStep1">
+
+            <div class="vat-step-header" onclick="toggleVatStep(1)">
+
+              <div class="vat-step-num-badge" id="vatStepNode1">01</div>
+
+              <span class="vat-step-title">Understand</span>
+
+              <span class="vat-step-toggle" id="vatStepToggle1">×</span>
+
+            </div>
+
+            <div class="vat-step-body open" id="vatStepBody1">
+
+              <div class="vat-step-body-inner">We begin by understanding your business activities, your current VAT position and the specific requirements you need to address. This ensures any support provided is relevant and appropriate to your situation.</div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="vat-step-item" id="vatStep2">
+
+            <div class="vat-step-header" onclick="toggleVatStep(2)">
+
+              <div class="vat-step-num-badge" id="vatStepNode2">02</div>
+
+              <span class="vat-step-title">Assess</span>
+
+              <span class="vat-step-toggle" id="vatStepToggle2">+</span>
+
+            </div>
+
+            <div class="vat-step-body" id="vatStepBody2">
+
+              <div class="vat-step-body-inner">We identify the relevant VAT service or support your business requires, whether that is registration, return filing, compliance, advisory, deregistration or another VAT-related requirement.</div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="vat-step-item" id="vatStep3">
+
+            <div class="vat-step-header" onclick="toggleVatStep(3)">
+
+              <div class="vat-step-num-badge" id="vatStepNode3">03</div>
+
+              <span class="vat-step-title">Support</span>
+
+              <span class="vat-step-toggle" id="vatStepToggle3">+</span>
+
+            </div>
+
+            <div class="vat-step-body" id="vatStepBody3">
+
+              <div class="vat-step-body-inner">We assist with the applicable VAT registration, filing, compliance or advisory process, supporting your business through each stage in a clear and structured manner.</div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="vat-step-item" id="vatStep4">
+
+            <div class="vat-step-header" onclick="toggleVatStep(4)">
+
+              <div class="vat-step-num-badge" id="vatStepNode4">04</div>
+
+              <span class="vat-step-title">Continue</span>
+
+              <span class="vat-step-toggle" id="vatStepToggle4">+</span>
+
+            </div>
+
+            <div class="vat-step-body" id="vatStepBody4">
+
+              <div class="vat-step-body-inner">Where ongoing VAT support is required — such as regular return filing or compliance monitoring — Maven can continue assisting with your VAT-related requirements as your business develops.</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• VAT + MAVEN INTEGRATION — PULLQUOTE â•â•â• -->
+
+  <section class="vat-integration">
+
+    <div class="section-container" style="position:relative;z-index:2;">
+
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:center;">
+
+        <div>
+
+          <span class="label-pill" style="margin-bottom:20px;display:inline-block;background:rgba(160,131,88,0.12);border-color:rgba(160,131,88,0.3);color:var(--brand-gold);">✦ VAT &amp; MAVEN</span>
+
+          <h2 style="font-family:'Bodoni Moda',serif;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:400;color:#fff;line-height:1.25;margin-bottom:20px;">VAT Support That Fits Into the <em style="color:var(--brand-gold);">Bigger Business Picture</em></h2>
+
+          <a href="services.html" class="btn-ribbon gold-ribbon-btn" style="padding:12px 24px;font-size:11px;">EXPLORE ALL SERVICES ↗</a>
+
+        </div>
+
+        <div>
+
+          <!-- Large pullquote -->
+
+          <blockquote style="margin:0 0 32px;padding:28px 32px;border-left:3px solid var(--brand-gold);background:rgba(255,255,255,0.04);">
+
+            <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.2vw,1.65rem);font-style:italic;color:rgba(255,255,255,0.85);line-height:1.5;margin:0;">"VAT does not exist in isolation from the rest of your business. Having your VAT, accounting, and compliance support under one professional partner can make business administration simpler and more coordinated."</p>
+
+          </blockquote>
+
+          <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:24px;">Company formation, accounting, corporate services and compliance can all form part of managing a business effectively. Maven Consults brings these services together, allowing businesses to access VAT support alongside other essential corporate services.</p>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+
+            <div style="display:flex;align-items:center;gap:14px;"><span style="width:28px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:12.5px;color:rgba(255,255,255,.6);">VAT Registration &amp; Return Filing</span></div>
+
+            <div style="display:flex;align-items:center;gap:14px;"><span style="width:28px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:12.5px;color:rgba(255,255,255,.6);">Accounting &amp; Financial Record Management</span></div>
+
+            <div style="display:flex;align-items:center;gap:14px;"><span style="width:28px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:12.5px;color:rgba(255,255,255,.6);">Corporate Compliance &amp; PRO Services</span></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FAQ â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--vat-line);">
+
+    <div class="section-container" style="max-width:860px;margin:0 auto;">
+
+      <div style="text-align:center;margin-bottom:50px;">
+
+        <span class="label-pill" style="margin-bottom:14px;">✦ VAT FAQ</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);">Common Questions About <em>VAT Services</em></h2>
+
+      </div>
+
+
+
+      <div>
+
+        <div class="vat-faq-item">
+
+          <div class="vat-faq-q" onclick="toggleVatFaq(this)"><span>What VAT services does Maven Consults provide?</span><span class="vat-faq-icon">+</span></div>
+
+          <div class="vat-faq-a"><div class="vat-faq-a-inner">Maven's VAT service offering includes VAT registration, VAT return filing, VAT compliance, VAT advisory and VAT deregistration. Penalty assistance can also be included where it is confirmed as part of Maven's service offering. Speak with the team for full details.</div></div>
+
+        </div>
+
+        <div class="vat-faq-item">
+
+          <div class="vat-faq-q" onclick="toggleVatFaq(this)"><span>Can Maven help with VAT registration?</span><span class="vat-faq-icon">+</span></div>
+
+          <div class="vat-faq-a"><div class="vat-faq-a-inner">Yes. Maven can provide support with the VAT registration process and help businesses understand the requirements involved in establishing their VAT position.</div></div>
+
+        </div>
+
+        <div class="vat-faq-item">
+
+          <div class="vat-faq-q" onclick="toggleVatFaq(this)"><span>Does Maven provide VAT return filing support?</span><span class="vat-faq-icon">+</span></div>
+
+          <div class="vat-faq-a"><div class="vat-faq-a-inner">Yes. VAT return filing is included within the VAT services outlined by Maven. Support can be provided with filing and the information required to manage ongoing VAT obligations.</div></div>
+
+        </div>
+
+        <div class="vat-faq-item">
+
+          <div class="vat-faq-q" onclick="toggleVatFaq(this)"><span>Can Maven help with ongoing VAT compliance?</span><span class="vat-faq-icon">+</span></div>
+
+          <div class="vat-faq-a"><div class="vat-faq-a-inner">Yes. VAT compliance is one of the core VAT services offered by Maven, providing ongoing support to help businesses understand and manage their VAT responsibilities.</div></div>
+
+        </div>
+
+        <div class="vat-faq-item">
+
+          <div class="vat-faq-q" onclick="toggleVatFaq(this)"><span>Does Maven provide VAT advisory services?</span><span class="vat-faq-icon">+</span></div>
+
+          <div class="vat-faq-a"><div class="vat-faq-a-inner">Yes. Maven provides VAT advisory support for businesses seeking practical guidance around their VAT-related requirements and business situations.</div></div>
+
+        </div>
+
+        <div class="vat-faq-item">
+
+          <div class="vat-faq-q" onclick="toggleVatFaq(this)"><span>Can Maven help with VAT deregistration?</span><span class="vat-faq-icon">+</span></div>
+
+          <div class="vat-faq-a"><div class="vat-faq-a-inner">Yes. VAT deregistration is included within the VAT service offering. Maven can support businesses that need to understand and manage VAT deregistration requirements.</div></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• RELATED SERVICES â•â•â• -->
+
+  <section style="padding:80px 0;background:var(--vat-bg);border-bottom:1px solid var(--vat-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:40px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ MORE FROM MAVEN</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(1.7rem,2.8vw,2.1rem);font-weight:400;color:var(--text-dark);">Complete Business Support, <em>Under One Roof</em></h2>
+
+      </div>
+
+      <div class="vat-related-grid">
+
+        <a href="accounting-bookkeeping.html" class="vat-related-card">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 01</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Accounting &amp; Bookkeeping</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Keep your financial records organised with professional accounting and bookkeeping support.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+        <a href="services.html#security" class="vat-related-card">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 02</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Compliance Services</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Manage relevant corporate and regulatory compliance requirements with professional support.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+        <a href="company-formation.html" class="vat-related-card">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 03</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Company Formation</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Establish your UAE business with the right structure and jurisdiction guidance from Maven.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+        <a href="pro-services.html" class="vat-related-card">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 04</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">PRO Services</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Simplify government procedures, documentation and corporate administration requirements.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+      </div>
+
+      <div style="text-align:center;margin-top:36px;">
+
+        <a href="services.html" class="btn-ribbon gold-ribbon-btn" style="padding:12px 28px;font-size:11px;">EXPLORE ALL SERVICES ↗</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FINAL CTA â•â•â• -->
+
+    <!-- SECTION: ULTRA MINIMAL BLENDING CTA BANNER -->
+  <section class="services-section" id="final-cta" style="padding: 90px 0; background: var(--bg-color); border-top: 1px solid rgba(160, 131, 88, 0.15); border-bottom: 1px solid rgba(160, 131, 88, 0.15);">
+    <div class="section-container" style="max-width: 860px; margin: 0 auto; text-align: center;">
+      
+      <!-- Minimal Label Pill -->
+      <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 18px; background: rgba(160, 131, 88, 0.08); border: 1px solid rgba(160, 131, 88, 0.22); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;">
+        ✦ TAKE THE NEXT STEP
+      </span>
+
+      <!-- Title -->
+      <h2 style="font-family: var(--font-serif); font-size: clamp(2.2rem, 3.8vw, 3.2rem); color: var(--text-dark); font-weight: 400; line-height: 1.18; margin-bottom: 18px; letter-spacing: -0.3px;">
+        Ready to Build Your Business <br>
+        <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold); font-weight: 400;">in the UAE &amp; Globally?</em>
+      </h2>
+
+      <!-- Description -->
+      <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.78; margin-bottom: 28px; max-width: 720px; margin-left: auto; margin-right: auto;">
+        Tell us what you are looking to achieve. Maven Consults helps founders, investors, and enterprise leaders evaluate jurisdictions, select appropriate structures, and execute setup with complete legal precision.
+      </p>
+
+      <!-- 3 Minimal Bullet Highlights Strip -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; font-size: 13px; color: var(--text-muted);">
+        <span><strong style="color: var(--brand-gold);">✦</strong> Structured Jurisdiction Scoping</span>
+        <span style="color: rgba(160,131,88,0.3);">&bull;</span>
+        <span><strong style="color: var(--brand-gold);">✦</strong> Fast-Track Government Clearance</span>
+        <span style="color: rgba(160,131,88,0.3);">&bull;</span>
+        <span><strong style="color: var(--brand-gold);">✦</strong> 100% Confidential Advisory</span>
+      </div>
+
+      <!-- Single Primary Action Ribbon -->
+      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 24px;">
+        <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding: 15px 38px; font-size: 11px; letter-spacing: 2px; text-decoration: none;">
+          BOOK CONSULTATION ↗
+        </a>
+      </div>
+
+      <!-- Minimal Compliance Line -->
+      <span style="font-size: 11px; color: var(--text-muted); display: inline-block;">
+        <i class="fa-solid fa-lock" style="font-size: 10px; color: var(--brand-gold); margin-right: 4px;"></i> Strict NDA &amp; UAE Non-Disclosure Standards Applied
+      </span>
+
+    </div>
+  </section>
+<footer style="padding:50px 0 24px 0;background:var(--bg-color);border-top:1px solid rgba(160,131,88,0.25);position:relative;overflow:hidden;">
+
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-family:'Bodoni Moda',serif;font-size:clamp(4rem,10vw,8rem);color:rgba(160,131,88,0.025);pointer-events:none;white-space:nowrap;user-select:none;letter-spacing:4px;">MAVEN CONSULTS</div>
+
+    <div class="section-container" style="position:relative;z-index:2;">
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start;padding-bottom:36px;border-bottom:1px solid rgba(160,131,88,0.2);">
+
+        <div><span style="font-size:10.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:14px;display:inline-block;">✦ MAVEN CONSULTS</span><h3 style="font-family:'Bodoni Moda',serif;font-size:clamp(1.8rem,3.2vw,2.6rem);color:var(--text-dark);font-weight:400;line-height:1.25;margin-bottom:16px;">Structured Solutions, <em>Built Around You.</em></h3><p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;max-width:480px;margin-bottom:24px;">Business setup, specialised licensing, corporate services and compliance support across the UAE and selected international jurisdictions.</p><a href="contact.html" class="arrow-link" style="font-size:12px;letter-spacing:2.2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">SCHEDULE A CONSULTATION <span class="arrow-icon">↗</span></a></div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">PRACTICES</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="company-formation.html" style="color:var(--text-muted);text-decoration:none;">Company Formation</a></li><li><a href="licensing.html" style="color:var(--text-muted);text-decoration:none;">Specialised Licensing</a></li><li><a href="offshore-company-formation.html" style="color:var(--text-muted);text-decoration:none;">Offshore Setup</a></li><li><a href="pro-services.html" style="color:var(--text-muted);text-decoration:none;">PRO &amp; Visas</a></li><li><a href="vat-services.html" style="color:var(--text-muted);text-decoration:none;">VAT Services</a></li></ul></div>
+
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">LICENSING</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="licensing/forex-cfd.html" style="color:var(--text-muted);text-decoration:none;">Forex &amp; CFD</a></li><li><a href="licensing/crypto-virtual-assets.html" style="color:var(--text-muted);text-decoration:none;">Crypto &amp; Virtual Assets</a></li><li><a href="licensing/payments-fintech.html" style="color:var(--text-muted);text-decoration:none;">Payments &amp; Fintech</a></li><li><a href="licensing/online-gambling.html" style="color:var(--text-muted);text-decoration:none;">Online Gambling</a></li><li><a href="licensing/trust-formation.html" style="color:var(--text-muted);text-decoration:none;">Trust Formation</a></li></ul></div>
+
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">NAVIGATION</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="index.html" style="color:var(--text-muted);text-decoration:none;">Home</a></li><li><a href="about.html" style="color:var(--text-muted);text-decoration:none;">About Us</a></li><li><a href="services.html" style="color:var(--text-muted);text-decoration:none;">Services</a></li><li><a href="blog.html" style="color:var(--text-muted);text-decoration:none;">Insights</a></li><li><a href="contact.html" style="color:var(--text-muted);text-decoration:none;">Contact</a></li></ul></div>
+
+        </div>
+
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(160,131,88,0.15);flex-wrap:wrap;gap:16px;"><div style="display:flex;align-items:center;gap:20px;font-size:11px;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;"><span>VAT REGISTRATION</span> • <span>RETURN FILING</span> • <span>COMPLIANCE</span> • <span>ADVISORY</span></div><div style="font-size:11.5px;color:var(--brand-gold);font-weight:600;letter-spacing:1.5px;">✦ UAE VAT SERVICES</div></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 0 24px;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--text-muted);"><div>© 2026 Maven Consults. All rights reserved.</div><div style="display:flex;gap:24px;"><a href="#" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a><a href="#" style="color:var(--text-muted);text-decoration:none;">Terms of Business</a><a href="#" style="color:var(--text-muted);text-decoration:none;">Disclaimer</a></div></div>
+
+    </div>
+
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+  <script>
+
+    /* â”€â”€ FAQ â”€â”€ */
+
+    function toggleVatFaq(qEl) {
+
+      const a = qEl.nextElementSibling;
+
+      const ic = qEl.querySelector('.vat-faq-icon');
+
+      const open = a.classList.contains('open');
+
+      document.querySelectorAll('.vat-faq-a').forEach(x => x.classList.remove('open'));
+
+      document.querySelectorAll('.vat-faq-icon').forEach(x => x.textContent = '+');
+
+      if (!open) { a.classList.add('open'); ic.textContent = '×'; }
+
+    }
+
+
+
+    /* â”€â”€ Approach vertical accordion â”€â”€ */
+
+    function toggleVatStep(n) {
+
+      for (let i = 1; i <= 4; i++) {
+
+        const item   = document.getElementById('vatStep' + i);
+
+        const body   = document.getElementById('vatStepBody' + i);
+
+        const node   = document.getElementById('vatStepNode' + i);
+
+        const toggle = document.getElementById('vatStepToggle' + i);
+
+        if (i === n) {
+
+          const isOpen = body.classList.contains('open');
+
+          body.classList.toggle('open', !isOpen);
+
+          item.classList.toggle('open', !isOpen);
+
+          toggle.textContent = isOpen ? '+' : '×';
+
+        } else {
+
+          body.classList.remove('open');
+
+          item.classList.remove('open');
+
+          toggle.textContent = '+';
+
+        }
+
+      }
+
+    }
+
+
+
+    /* â”€â”€ Stage selector â”€â”€ */
+
+    function selectVatStage(n) {
+
+      for (let i = 1; i <= 4; i++) {
+
+        const c = document.getElementById('stageCard' + i);
+
+        c.classList.toggle('active', i === n);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+

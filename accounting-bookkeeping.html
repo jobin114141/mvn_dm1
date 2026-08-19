@@ -1,0 +1,1396 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Accounting & Bookkeeping | Maven Consults UAE</title>
+
+  <meta name="description" content="Professional accounting and bookkeeping support for UAE businesses. Monthly accounting, financial reporting, year-end support and ongoing bookkeeping services from Maven Consults.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+    /* â”€â”€ Page-scoped tokens â”€â”€ */
+
+    :root{--acct-line:rgba(160,131,88,.18);--acct-card-bg:rgba(160,131,88,.025);}
+
+
+
+    /* â”€â”€ FAQ accordion â”€â”€ */
+
+    .acct-faq-item{border-top:1px solid var(--acct-line)}
+
+    .acct-faq-item:last-child{border-bottom:1px solid var(--acct-line)}
+
+    .acct-faq-q{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;cursor:pointer;font-family:var(--font-serif);font-size:1.02rem;color:var(--text-dark);transition:color .25s}
+
+    .acct-faq-q:hover{color:var(--brand-gold)}
+
+    .acct-faq-icon{font-size:18px;color:var(--brand-gold);flex-shrink:0}
+
+    .acct-faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+
+    .acct-faq-a.open{max-height:220px}
+
+    .acct-faq-a-inner{padding:0 40px 20px 0;font-size:13.5px;color:var(--text-muted);line-height:1.75}
+
+
+
+    /* â”€â”€ Service hexagon cards â”€â”€ */
+
+    .acct-svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;border:1px solid var(--acct-line)}
+
+    .acct-svc-card{padding:32px 28px;background:var(--bg-color);border-right:1px solid var(--acct-line);border-bottom:1px solid var(--acct-line);transition:background .3s ease}
+
+    .acct-svc-card:hover{background:var(--acct-card-bg)}
+
+    .acct-svc-num{font-size:9.5px;font-weight:700;letter-spacing:2.5px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:10px;display:block}
+
+
+
+    /* â”€â”€ Ticker flow bar â”€â”€ */
+
+    .acct-flow-bar{padding:16px 0;background:var(--text-dark);overflow:hidden}
+
+    .acct-flow-inner{display:flex;gap:0;animation:acctFlowScroll 28s linear infinite;white-space:nowrap}
+
+    @keyframes acctFlowScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    .acct-flow-item{display:inline-flex;align-items:center;gap:14px;padding:0 28px;font-size:10px;font-weight:700;letter-spacing:2.5px;color:rgba(255,255,255,.55);text-transform:uppercase}
+
+    .acct-flow-dot{width:4px;height:4px;border-radius:50%;background:var(--brand-gold);flex-shrink:0}
+
+
+
+    /* â”€â”€ Horizontal process strip â”€â”€ */
+
+    .acct-proc-strip{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+
+    .acct-proc-strip::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:rgba(160,131,88,.3);z-index:0}
+
+    .acct-proc-card{position:relative;z-index:1;padding:0 24px 32px 0;display:flex;flex-direction:column;gap:10px}
+
+    .acct-proc-node{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--brand-gold);display:flex;align-items:center;justify-content:center;background:var(--bg-color);font-family:var(--font-serif);font-size:1.1rem;color:var(--brand-gold);margin-bottom:14px}
+
+
+
+    /* â”€â”€ Why matters pillars â”€â”€ */
+
+    .acct-pillar{padding:36px 28px;border-top:3px solid transparent;background:var(--acct-card-bg);transition:border-color .3s ease,box-shadow .3s ease}
+
+    .acct-pillar:hover{border-top-color:var(--brand-gold);box-shadow:0 4px 28px rgba(160,131,88,.08)}
+
+
+
+    /* â”€â”€ Who we support audience cards â”€â”€ */
+
+    .acct-audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+    .acct-audience-card{padding:32px 24px;border:1px solid var(--acct-line);background:var(--bg-color);position:relative;overflow:hidden;transition:border-color .3s}
+
+    .acct-audience-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--brand-gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+
+    .acct-audience-card:hover{border-color:rgba(160,131,88,.45)}
+
+    .acct-audience-card:hover::after{transform:scaleX(1)}
+
+
+
+    /* â”€â”€ Maven advantage features â”€â”€ */
+
+    .acct-adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+
+    .acct-adv-card{padding:28px 24px;border:1px solid var(--acct-line);background:var(--acct-card-bg);display:flex;gap:16px;align-items:flex-start}
+
+    .acct-adv-icon{width:44px;height:44px;border:1px solid rgba(160,131,88,.35);display:flex;align-items:center;justify-content:center;color:var(--brand-gold);font-size:1rem;flex-shrink:0}
+
+
+
+    /* â”€â”€ Reporting chain visual â”€â”€ */
+
+    .acct-chain{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+
+    .acct-chain-step{padding:14px 22px;background:var(--text-dark);color:rgba(255,255,255,.85);font-size:12.5px;font-weight:600;letter-spacing:1px;white-space:nowrap}
+
+    .acct-chain-arrow{padding:0 10px;color:var(--brand-gold);font-size:1.1rem}
+
+
+
+    /* â”€â”€ Year-end full-bleed strip â”€â”€ */
+
+    .acct-yearend-strip{padding:80px 0;background:var(--text-dark);position:relative;overflow:hidden}
+
+    .acct-yearend-strip::after{content:'YEAR-END';position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Bodoni Moda',serif;font-size:clamp(4rem,10vw,8rem);color:rgba(255,255,255,.025);pointer-events:none;letter-spacing:4px;white-space:nowrap}
+
+
+
+    @media(max-width:768px){
+
+      .acct-proc-strip{grid-template-columns:1fr 1fr;gap:24px}
+
+      .acct-proc-strip::before{display:none}
+
+      .acct-chain{flex-direction:column;align-items:flex-start}
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â• -->
+
+  <div class="hero-wrapper services-hero-wrapper" id="home" style="min-height:85vh;">
+
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="logo">MAVEN</a>
+      </div>
+
+      <nav class="nav-center" id="navMenu">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        
+        <!-- 1. OFFSHORE FORMATION DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="offshore-company-formation.html" class="nav-link nav-dropdown-trigger">
+            OFFSHORE FORMATION <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="jafza-offshore.html"><span class="mega-bullet">✦</span> JAFZA Offshore</a></li>
+              <li><a href="rak-offshore.html"><span class="mega-bullet">✦</span> RAK Offshore</a></li>
+              <li><a href="ajman-offshore.html"><span class="mega-bullet">✦</span> Ajman Offshore</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. LICENSING DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="licensing.html" class="nav-link nav-dropdown-trigger">
+            LICENSING <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="licensing.html"><span class="mega-bullet">✦</span> Licensing Overview</a></li>
+              <li><a href="licensing/forex-cfd.html"><span class="mega-bullet">✦</span> Forex &amp; CFD</a></li>
+              <li><a href="licensing/crypto-virtual-assets.html"><span class="mega-bullet">✦</span> Crypto &amp; Virtual Assets</a></li>
+              <li><a href="licensing/payments-fintech.html"><span class="mega-bullet">✦</span> Payments &amp; Fintech</a></li>
+              <li><a href="licensing/online-gambling.html"><span class="mega-bullet">✦</span> Online Gambling</a></li>
+              <li><a href="licensing/trust-formation.html"><span class="mega-bullet">✦</span> Trust Formation</a></li>
+              <li><a href="licensing/foundation-holding-structures.html"><span class="mega-bullet">✦</span> Foundations &amp; Holding</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. COMPANY FORMATION DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="company-formation.html" class="nav-link nav-dropdown-trigger">
+            COMPANY FORMATION <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="dubai-free-zone.html"><span class="mega-bullet">✦</span> Dubai Free Zones</a></li>
+              <li><a href="sharjah-free-zone.html"><span class="mega-bullet">✦</span> Sharjah Free Zones</a></li>
+              <li><a href="rak-free-zone.html"><span class="mega-bullet">✦</span> RAK Free Zones</a></li>
+              <li><a href="ajman-free-zone.html"><span class="mega-bullet">✦</span> Ajman Free Zones</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. PRO & COMPLIANCE DROPDOWN -->
+        <div class="nav-dropdown-wrapper">
+          <a href="pro-services.html" class="nav-link nav-dropdown-trigger active">
+            PRO &amp; COMPLIANCE <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="simple-dropdown-menu">
+            <ul class="dropdown-list">
+              <li><a href="pro-services.html"><span class="mega-bullet">✦</span> PRO Services</a></li>
+              <li><a href="visa-services.html"><span class="mega-bullet">✦</span> Visa Services</a></li>
+              <li><a href="accounting-bookkeeping.html"><span class="mega-bullet">✦</span> Accounting &amp; Bookkeeping</a></li>
+              <li><a href="vat-services.html"><span class="mega-bullet">✦</span> VAT Services</a></li>
+              <li><a href="compliance-services.html"><span class="mega-bullet">✦</span> Compliance Services</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="blog.html" class="nav-link">BLOG</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="contact.html" class="btn-ribbon nav-btn-compact">BOOK CONSULTATION ↗</a>
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+
+
+    <main class="hero-main" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px var(--container-padding, 40px) 40px var(--container-padding, 40px); position: relative; z-index: 2; min-height: 70vh; justify-content: center;">
+      <div class="hero-reveal" style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; padding: 6px 18px; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+          ✦ CORPORATE FINANCIAL ADVISORY & ACCOUNTING
+        </span>
+
+        <h1 style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: clamp(2.3rem, 4.2vw, 3.6rem); font-weight: 400; color: var(--text-dark, #141414); line-height: 1.16; margin-bottom: 18px; letter-spacing: -0.5px;">
+          Accounting & Bookkeeping <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold, #a08358); font-weight: 400;">Management Services.</em>
+        </h1>
+
+        <p style="font-size: 15.5px; color: var(--text-muted, #555); line-height: 1.78; max-width: 720px; margin-bottom: 28px;">
+          Maintain IFRS-compliant corporate financial records, management accounting, financial reporting, and payroll management tailored around UAE Corporate Tax laws.
+        </p>
+
+        <!-- CTA Group -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+          <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding: 13px 32px; font-size: 11px; letter-spacing: 2px;">
+            BOOK CONSULTATION ↗
+          </a>
+          
+        </div>
+
+        <!-- 5 Metric Ribbon Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; width: 100%; max-width: 920px;">
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">STANDARDS</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">IFRS Compliant</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">SOFTWARE</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Zoho / Xero / QuickBooks</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">TAX COMPLIANCE</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">9% Corporate Tax Ready</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">REPORTING</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">Monthly Financial Audits</strong>
+          </div>
+          <div style="padding: 14px 12px; border: 1px solid rgba(160,131,88,0.2); background: rgba(255,255,255,0.7); text-align: center;">
+            <span style="font-size: 9px; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 3px;">PAYROLL</span>
+            <strong style="font-size: 12.5px; color: var(--text-dark);">WPS Compliant System</strong>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="sub-peek-section hero-reveal"><h2 class="sub-peek-title">BOOKKEEPING · MONTHLY ACCOUNTING · FINANCIAL REPORTING · YEAR-END SUPPORT</h2></div>
+
+  </div>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FLOW TICKER BAR â•â•â• -->
+
+  <div class="acct-flow-bar">
+
+    <div class="acct-flow-inner" aria-hidden="true">
+
+      <!-- duplicated for seamless loop -->
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>ACCOUNTING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>BOOKKEEPING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>FINANCIAL REPORTING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>MONTHLY ACCOUNTING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>YEAR-END SUPPORT</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>BUSINESS FINANCES</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>ACCURATE RECORDS</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>ACCOUNTING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>BOOKKEEPING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>FINANCIAL REPORTING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>MONTHLY ACCOUNTING</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>YEAR-END SUPPORT</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>BUSINESS FINANCES</span>
+
+      <span class="acct-flow-item"><span class="acct-flow-dot"></span>ACCURATE RECORDS</span>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• INTRODUCTION â•â•â• -->
+
+  <section id="introduction" style="padding:90px 0;background:var(--bg-color);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1fr 1.65fr;gap:72px;align-items:start;">
+
+
+
+        <!-- sticky left -->
+
+        <div style="position:sticky;top:80px;">
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ ACCOUNTING SUPPORT FOR YOUR BUSINESS</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:20px;">Keep Your Business Finances Clear, <em>Accurate and Organised</em></h2>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">BOOK A CONSULTATION <span class="arrow-icon">↗</span></a>
+
+        </div>
+
+
+
+        <!-- right body -->
+
+        <div>
+
+          <p style="font-size:15.5px;color:var(--text-muted);line-height:1.8;margin-bottom:18px;">Managing your business finances requires more than recording transactions. Accurate bookkeeping and reliable accounting give you a clearer view of your business and help you stay organised as your operations grow.</p>
+
+          <p style="font-size:15.5px;color:var(--text-muted);line-height:1.8;margin-bottom:30px;">Maven Consults provides accounting and bookkeeping support designed around the ongoing needs of your business, from maintaining day-to-day records to preparing financial information and supporting year-end requirements.</p>
+
+
+
+          <!-- three inline stats (visual only — no invented numbers) -->
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--acct-line);">
+
+            <div style="padding:22px 18px;text-align:center;border-right:1px solid var(--acct-line);">
+
+              <div style="font-family:var(--font-serif);font-size:1.6rem;color:var(--text-dark);margin-bottom:4px;"><i class="fa-solid fa-book-open" style="font-size:1.2rem;color:var(--brand-gold);"></i></div>
+
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark);text-transform:uppercase;margin-bottom:4px;">Bookkeeping</div>
+
+              <div style="font-size:12px;color:var(--text-muted);">Day-to-day record management</div>
+
+            </div>
+
+            <div style="padding:22px 18px;text-align:center;border-right:1px solid var(--acct-line);">
+
+              <div style="font-family:var(--font-serif);font-size:1.6rem;color:var(--text-dark);margin-bottom:4px;"><i class="fa-solid fa-chart-line" style="font-size:1.2rem;color:var(--brand-gold);"></i></div>
+
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark);text-transform:uppercase;margin-bottom:4px;">Reporting</div>
+
+              <div style="font-size:12px;color:var(--text-muted);">Organised financial information</div>
+
+            </div>
+
+            <div style="padding:22px 18px;text-align:center;">
+
+              <div style="font-family:var(--font-serif);font-size:1.6rem;color:var(--text-dark);margin-bottom:4px;"><i class="fa-solid fa-calendar-check" style="font-size:1.2rem;color:var(--brand-gold);"></i></div>
+
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark);text-transform:uppercase;margin-bottom:4px;">Year-End</div>
+
+              <div style="font-size:12px;color:var(--text-muted);">Prepared for year-end requirements</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CORE SERVICES â•â•â• -->
+
+  <section id="services" style="padding:90px 0;background:rgba(160,131,88,0.02);border-top:1px solid var(--acct-line);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:52px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ OUR ACCOUNTING SERVICES</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">Accounting Support That <em>Keeps Your Business Moving</em></h2>
+
+        <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin:0 auto;line-height:1.7;">Our accounting and bookkeeping services can support businesses throughout their financial cycle, helping maintain accurate records and organised financial information.</p>
+
+      </div>
+
+
+
+      <div class="acct-svc-grid">
+
+
+
+        <div class="acct-svc-card">
+
+          <span class="acct-svc-num">SERVICE 01</span>
+
+          <div style="font-size:1.4rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:10px;">Accounting</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;margin:0;">Maintain organised and accurate financial records that give your business a clearer understanding of its financial position. Accounting support helps keep financial information structured and ready for ongoing reporting.</p>
+
+        </div>
+
+
+
+        <div class="acct-svc-card">
+
+          <span class="acct-svc-num">SERVICE 02</span>
+
+          <div style="font-size:1.4rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-book"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:10px;">Bookkeeping</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;margin:0;">Keep day-to-day financial transactions recorded and organised so your business always has reliable financial information available when it is needed.</p>
+
+        </div>
+
+
+
+        <div class="acct-svc-card">
+
+          <span class="acct-svc-num">SERVICE 03</span>
+
+          <div style="font-size:1.4rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-chart-bar"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:10px;">Financial Reporting</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;margin:0;">Turn financial records into clear and useful financial information that helps you understand business performance and make more informed business decisions.</p>
+
+        </div>
+
+
+
+        <div class="acct-svc-card">
+
+          <span class="acct-svc-num">SERVICE 04</span>
+
+          <div style="font-size:1.4rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-calendar-days"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:10px;">Monthly Accounting</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;margin:0;">Maintain your accounts consistently throughout the year with ongoing accounting support and regular financial record management, keeping your business always in order.</p>
+
+        </div>
+
+
+
+        <div class="acct-svc-card">
+
+          <span class="acct-svc-num">SERVICE 05</span>
+
+          <div style="font-size:1.4rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-flag-checkered"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:10px;">Year-End Support</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;margin:0;">Prepare your financial records for year-end requirements with organised accounts and professional accounting support to help you close the financial year with confidence.</p>
+
+        </div>
+
+
+
+        <!-- Service 06 placeholder (payroll — conditional) -->
+
+        <div class="acct-svc-card" style="display:flex;flex-direction:column;justify-content:space-between;">
+
+          <div>
+
+            <span class="acct-svc-num">SERVICE 06</span>
+
+            <div style="font-size:1.4rem;color:rgba(160,131,88,0.4);margin-bottom:12px;"><i class="fa-solid fa-users"></i></div>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--text-dark);margin-bottom:10px;">Payroll</h3>
+
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;margin:0 0 14px;">Payroll support can be provided as part of the accounting service where applicable.</p>
+
+          </div>
+
+          <a href="contact.html" style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);text-decoration:none;text-transform:uppercase;">ENQUIRE ABOUT PAYROLL ↗</a>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHY GOOD ACCOUNTING MATTERS — PILLARS â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start;">
+
+
+
+        <div style="position:sticky;top:80px;">
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHY GOOD ACCOUNTING MATTERS</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:16px;">Your Numbers Should Give You <em>Clarity, Not Complexity.</em></h2>
+
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:24px;">Well-maintained financial records help businesses understand where they stand, monitor performance and stay organised throughout the year.</p>
+
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;">With the right accounting support, you can spend less time managing financial administration and more time focusing on your business.</p>
+
+        </div>
+
+
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+          <div class="acct-pillar">
+
+            <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-circle-check"></i></div>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Accurate Records</h3>
+
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Keep your financial information properly organised and up to date throughout the year.</p>
+
+          </div>
+
+          <div class="acct-pillar">
+
+            <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-eye"></i></div>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Better Visibility</h3>
+
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Gain a clearer understanding of your business finances and overall performance position.</p>
+
+          </div>
+
+          <div class="acct-pillar">
+
+            <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-rotate"></i></div>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Consistent Management</h3>
+
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Maintain accounting records throughout the year instead of leaving everything to year-end.</p>
+
+          </div>
+
+          <div class="acct-pillar">
+
+            <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:12px;"><i class="fa-solid fa-handshake"></i></div>
+
+            <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Professional Support</h3>
+
+            <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Have accounting support available when your business needs it, not just at year-end.</p>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MONTHLY ACCOUNTING â•â•â• -->
+
+  <section style="padding:90px 0;background:rgba(160,131,88,0.025);border-top:1px solid var(--acct-line);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:72px;align-items:center;">
+
+
+
+        <div>
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ MONTHLY ACCOUNTING</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.9rem,3vw,2.5rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:18px;">Stay on Top of Your Finances, <em>Month After Month</em></h2>
+
+          <p style="font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:14px;">Regular accounting support helps keep your financial records organised throughout the year. Maven can support businesses with ongoing accounting and bookkeeping requirements so that financial information remains structured, accessible and easier to manage.</p>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">DISCUSS YOUR REQUIREMENTS <span class="arrow-icon">↗</span></a>
+
+        </div>
+
+
+
+        <!-- right: 4-point list -->
+
+        <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--acct-line);">
+
+          <div style="padding:22px 24px;border-bottom:1px solid var(--acct-line);display:flex;gap:16px;align-items:flex-start;">
+
+            <span style="width:28px;height:28px;border:1px solid var(--brand-gold);color:var(--brand-gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">01</span>
+
+            <div><strong style="font-size:13.5px;color:var(--text-dark);display:block;margin-bottom:4px;">Regular Record Management</strong><span style="font-size:13px;color:var(--text-muted);">Keep financial transactions and records organised consistently.</span></div>
+
+          </div>
+
+          <div style="padding:22px 24px;border-bottom:1px solid var(--acct-line);display:flex;gap:16px;align-items:flex-start;">
+
+            <span style="width:28px;height:28px;border:1px solid var(--brand-gold);color:var(--brand-gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">02</span>
+
+            <div><strong style="font-size:13.5px;color:var(--text-dark);display:block;margin-bottom:4px;">Ongoing Financial Visibility</strong><span style="font-size:13px;color:var(--text-muted);">Maintain a clearer picture of your business finances throughout the year.</span></div>
+
+          </div>
+
+          <div style="padding:22px 24px;border-bottom:1px solid var(--acct-line);display:flex;gap:16px;align-items:flex-start;">
+
+            <span style="width:28px;height:28px;border:1px solid var(--brand-gold);color:var(--brand-gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">03</span>
+
+            <div><strong style="font-size:13.5px;color:var(--text-dark);display:block;margin-bottom:4px;">Organised Documentation</strong><span style="font-size:13px;color:var(--text-muted);">Keep important financial information properly maintained and accessible.</span></div>
+
+          </div>
+
+          <div style="padding:22px 24px;display:flex;gap:16px;align-items:flex-start;">
+
+            <span style="width:28px;height:28px;border:1px solid var(--brand-gold);color:var(--brand-gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;">04</span>
+
+            <div><strong style="font-size:13.5px;color:var(--text-dark);display:block;margin-bottom:4px;">Continuous Support</strong><span style="font-size:13px;color:var(--text-muted);">Avoid treating accounting as a once-a-year task by maintaining records consistently.</span></div>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FINANCIAL REPORTING â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:50px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ FINANCIAL REPORTING</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">Turn Your Financial Data Into <em>Useful Information</em></h2>
+
+        <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin:0 auto 32px;line-height:1.7;">Financial records are most valuable when they help you understand your business. Maven's accounting support helps businesses maintain organised financial information that can be used for reporting, monitoring and informed business decisions.</p>
+
+
+
+        <!-- Reporting chain visual -->
+
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0;margin-bottom:0;">
+
+          <div class="acct-chain-step">Accurate Records</div>
+
+          <div class="acct-chain-arrow">→</div>
+
+          <div class="acct-chain-step">Clear Financial Information</div>
+
+          <div class="acct-chain-arrow">→</div>
+
+          <div class="acct-chain-step">Better Business Visibility</div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Three reporting columns -->
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;border:1px solid var(--acct-line);margin-top:48px;">
+
+        <div style="padding:30px 26px;background:var(--bg-color);border-right:1px solid var(--acct-line);">
+
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-database"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">Record Maintenance</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Financial transactions are recorded accurately and maintained in an organised format throughout the reporting period.</p>
+
+        </div>
+
+        <div style="padding:30px 26px;background:var(--acct-card-bg);border-right:1px solid var(--acct-line);">
+
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-filter"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">Financial Organisation</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Financial data is structured and presented in a clear and accessible format to support business understanding and reporting.</p>
+
+        </div>
+
+        <div style="padding:30px 26px;background:var(--bg-color);">
+
+          <div style="font-size:1.2rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:8px;">Business Visibility</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Organised financial information helps businesses monitor performance, understand their position and make more informed decisions.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• YEAR-END STRIP â•â•â• -->
+
+  <section class="acct-yearend-strip">
+
+    <div class="section-container" style="position:relative;z-index:2;">
+
+      <div style="display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;">
+
+        <div>
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;background:rgba(160,131,88,0.12);border-color:rgba(160,131,88,0.25);color:var(--brand-gold);">✦ YEAR-END SUPPORT</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:400;color:#fff;line-height:1.25;margin-bottom:16px;">Be Ready When the <em style="color:var(--brand-gold);">Financial Year Ends</em></h2>
+
+          <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:600px;margin-bottom:20px;">Year-end can become complicated when financial records have not been maintained consistently throughout the year. Maven provides year-end accounting support to help businesses organise their financial records and prepare for relevant year-end requirements.</p>
+
+          <div style="display:flex;flex-direction:column;gap:12px;">
+
+            <div style="display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:12.5px;color:rgba(255,255,255,0.65);">Organised financial records ahead of year-end</span></div>
+
+            <div style="display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:12.5px;color:rgba(255,255,255,0.65);">Professional accounting support when you need it</span></div>
+
+            <div style="display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:var(--brand-gold);flex-shrink:0;"></span><span style="font-size:12.5px;color:rgba(255,255,255,0.65);">Preparation for relevant year-end requirements</span></div>
+
+          </div>
+
+        </div>
+
+        <div style="flex-shrink:0;">
+
+          <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding:14px 28px;font-size:11px;white-space:nowrap;">DISCUSS YOUR REQUIREMENTS ↗</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• WHO WE SUPPORT â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:50px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ BUILT AROUND YOUR BUSINESS</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;margin-bottom:14px;">Accounting Support for Businesses <em>at Every Stage</em></h2>
+
+        <p style="font-size:15px;color:var(--text-muted);max-width:680px;margin:0 auto;line-height:1.7;">Whether you are establishing a new company or managing an existing business, your accounting requirements change as your operations develop. Maven provides support that can adapt to your needs.</p>
+
+      </div>
+
+
+
+      <div class="acct-audience-grid">
+
+        <div class="acct-audience-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-seedling"></i></div>
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 01</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">New Businesses</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Start with organised financial records from the beginning, building the right accounting foundation for your business.</p>
+
+        </div>
+
+        <div class="acct-audience-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 02</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Growing Businesses</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Keep your accounts organised as your transactions and operations increase in volume and complexity.</p>
+
+        </div>
+
+        <div class="acct-audience-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-building"></i></div>
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 03</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Established Businesses</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Maintain consistent accounting and financial reporting support for your ongoing business requirements.</p>
+
+        </div>
+
+        <div class="acct-audience-card">
+
+          <div style="font-size:1.3rem;color:var(--brand-gold);margin-bottom:10px;"><i class="fa-solid fa-globe"></i></div>
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;display:block;margin-bottom:6px;">STAGE 04</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">International Businesses</h3>
+
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.65;margin:0;">Support financial administration for businesses operating across jurisdictions, where applicable.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• OUR APPROACH — PROCESS â•â•â• -->
+
+  <section style="padding:90px 0;background:rgba(160,131,88,0.02);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:60px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ HOW WE WORK</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.25;">A Simple, Structured Approach <em>to Accounting</em></h2>
+
+      </div>
+
+
+
+      <div class="acct-proc-strip">
+
+        <div class="acct-proc-card">
+
+          <div class="acct-proc-node">01</div>
+
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:6px;display:block;">UNDERSTAND</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Understand</h3>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">We understand your business, accounting requirements and current financial processes before making any recommendations.</p>
+
+        </div>
+
+        <div class="acct-proc-card">
+
+          <div class="acct-proc-node">02</div>
+
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:6px;display:block;">ORGANISE</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Organise</h3>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">We help establish an organised approach to maintaining your accounting and bookkeeping records from the start.</p>
+
+        </div>
+
+        <div class="acct-proc-card">
+
+          <div class="acct-proc-node">03</div>
+
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:6px;display:block;">MAINTAIN</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Maintain</h3>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">Your financial records are maintained through ongoing accounting and bookkeeping support throughout the year.</p>
+
+        </div>
+
+        <div class="acct-proc-card">
+
+          <div class="acct-proc-node">04</div>
+
+          <span style="font-size:9.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:6px;display:block;">REPORT</span>
+
+          <h3 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:8px;">Report</h3>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">Relevant financial information can be prepared and organised to support reporting and business requirements.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MAVEN ADVANTAGE â•â•â• -->
+
+  <section style="padding:90px 0;background:var(--bg-color);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:72px;align-items:start;">
+
+        <div style="position:sticky;top:80px;">
+
+          <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ WHY MAVEN</span>
+
+          <h2 style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);line-height:1.28;margin-bottom:16px;">Accounting Support That <em>Goes Beyond the Numbers</em></h2>
+
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:20px;">Maven Consults understands that accounting is part of a larger business ecosystem. Company formation, accounting, VAT and compliance requirements can all be connected. Having these services under one professional partner can make ongoing business administration simpler and more coordinated.</p>
+
+          <a href="contact.html" class="arrow-link" style="font-size:11.5px;letter-spacing:2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">BOOK A CONSULTATION <span class="arrow-icon">↗</span></a>
+
+        </div>
+
+        <div class="acct-adv-grid">
+
+          <div class="acct-adv-card">
+
+            <div class="acct-adv-icon"><i class="fa-solid fa-lightbulb"></i></div>
+
+            <div>
+
+              <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Business Understanding</h3>
+
+              <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">Our accounting support sits within a wider understanding of your business and corporate requirements.</p>
+
+            </div>
+
+          </div>
+
+          <div class="acct-adv-card">
+
+            <div class="acct-adv-icon"><i class="fa-solid fa-arrow-rotate-right"></i></div>
+
+            <div>
+
+              <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Ongoing Support</h3>
+
+              <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">Accounting is managed as an ongoing requirement rather than a one-time service.</p>
+
+            </div>
+
+          </div>
+
+          <div class="acct-adv-card">
+
+            <div class="acct-adv-icon"><i class="fa-solid fa-comments"></i></div>
+
+            <div>
+
+              <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Clear Communication</h3>
+
+              <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">Financial information should be understandable, organised and accessible to the business.</p>
+
+            </div>
+
+          </div>
+
+          <div class="acct-adv-card">
+
+            <div class="acct-adv-icon"><i class="fa-solid fa-cubes"></i></div>
+
+            <div>
+
+              <h3 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);margin-bottom:6px;">Integrated Business Services</h3>
+
+              <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">Accounting can work alongside Maven's wider corporate, VAT and compliance services where required.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FAQ â•â•â• -->
+
+  <section style="padding:90px 0;background:rgba(160,131,88,0.02);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container" style="max-width:860px;margin:0 auto;">
+
+      <div style="text-align:center;margin-bottom:50px;">
+
+        <span class="label-pill" style="margin-bottom:14px;">✦ ACCOUNTING &amp; BOOKKEEPING FAQ</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:400;color:var(--text-dark);">Frequently Asked <em>Questions</em></h2>
+
+      </div>
+
+
+
+      <div>
+
+        <div class="acct-faq-item">
+
+          <div class="acct-faq-q" onclick="toggleAcctFaq(this)">
+
+            <span>What accounting services does Maven Consults provide?</span>
+
+            <span class="acct-faq-icon">+</span>
+
+          </div>
+
+          <div class="acct-faq-a">
+
+            <div class="acct-faq-a-inner">Maven's Accounting &amp; Bookkeeping service covers accounting, bookkeeping, financial reporting, monthly accounting and year-end support. Payroll can also be included where applicable. Speak with the team to understand the full scope of support available for your business.</div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="acct-faq-item">
+
+          <div class="acct-faq-q" onclick="toggleAcctFaq(this)">
+
+            <span>Do you provide ongoing monthly accounting?</span>
+
+            <span class="acct-faq-icon">+</span>
+
+          </div>
+
+          <div class="acct-faq-a">
+
+            <div class="acct-faq-a-inner">Yes. Monthly accounting is part of the Accounting &amp; Bookkeeping service structure and can provide businesses with ongoing financial record management and regular financial visibility throughout the year.</div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="acct-faq-item">
+
+          <div class="acct-faq-q" onclick="toggleAcctFaq(this)">
+
+            <span>Can Maven help with year-end accounting?</span>
+
+            <span class="acct-faq-icon">+</span>
+
+          </div>
+
+          <div class="acct-faq-a">
+
+            <div class="acct-faq-a-inner">Yes. Maven provides year-end accounting support to help businesses organise their financial records and prepare for relevant year-end requirements.</div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="acct-faq-item">
+
+          <div class="acct-faq-q" onclick="toggleAcctFaq(this)">
+
+            <span>Do you provide payroll services?</span>
+
+            <span class="acct-faq-icon">+</span>
+
+          </div>
+
+          <div class="acct-faq-a">
+
+            <div class="acct-faq-a-inner">Payroll support availability should be confirmed by Maven before being presented as a confirmed service. Please speak with the team directly to understand what is included.</div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="acct-faq-item">
+
+          <div class="acct-faq-q" onclick="toggleAcctFaq(this)">
+
+            <span>Can accounting be combined with other Maven services?</span>
+
+            <span class="acct-faq-icon">+</span>
+
+          </div>
+
+          <div class="acct-faq-a">
+
+            <div class="acct-faq-a-inner">Yes. Accounting can work alongside relevant Maven services such as VAT and compliance support, depending on the business's requirements. Having these services under one partner can make business administration more coordinated.</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• RELATED SERVICES â•â•â• -->
+
+  <section style="padding:80px 0;background:var(--bg-color);border-bottom:1px solid var(--acct-line);">
+
+    <div class="section-container">
+
+      <div style="text-align:center;margin-bottom:40px;">
+
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ RELATED MAVEN SERVICES</span>
+
+        <h2 style="font-family:var(--font-serif);font-size:clamp(1.7rem,2.8vw,2.1rem);font-weight:400;color:var(--text-dark);">Accounting Works Best <em>Alongside These Services</em></h2>
+
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;">
+
+        <a href="services.html#security" style="padding:24px 22px;border:1px solid var(--acct-line);background:var(--acct-card-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s ease;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--acct-line)'">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 01</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">VAT Services</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Support with relevant VAT registration, filing and compliance requirements.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+        <a href="services.html#security" style="padding:24px 22px;border:1px solid var(--acct-line);background:var(--acct-card-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s ease;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--acct-line)'">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 02</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Compliance Services</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Manage relevant ongoing corporate and regulatory compliance requirements.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+        <a href="company-formation.html" style="padding:24px 22px;border:1px solid var(--acct-line);background:var(--acct-card-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s ease;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--acct-line)'">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 03</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">Company Formation</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Establish your UAE business with the right structure and jurisdiction guidance.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+        <a href="pro-services.html" style="padding:24px 22px;border:1px solid var(--acct-line);background:var(--acct-card-bg);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .3s ease;" onmouseover="this.style.borderColor='rgba(160,131,88,.5)'" onmouseout="this.style.borderColor='var(--acct-line)'">
+
+          <span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;">RELATED 04</span>
+
+          <strong style="font-family:var(--font-serif);font-size:1.1rem;color:var(--text-dark);">PRO Services</strong>
+
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;">Professional support with government and corporate administration requirements.</p>
+
+          <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brand-gold);">LEARN MORE ↗</span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FINAL CTA â•â•â• -->
+
+    <!-- SECTION: ULTRA MINIMAL BLENDING CTA BANNER -->
+  <section class="services-section" id="final-cta" style="padding: 90px 0; background: var(--bg-color); border-top: 1px solid rgba(160, 131, 88, 0.15); border-bottom: 1px solid rgba(160, 131, 88, 0.15);">
+    <div class="section-container" style="max-width: 860px; margin: 0 auto; text-align: center;">
+      
+      <!-- Minimal Label Pill -->
+      <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 18px; background: rgba(160, 131, 88, 0.08); border: 1px solid rgba(160, 131, 88, 0.22); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;">
+        ✦ TAKE THE NEXT STEP
+      </span>
+
+      <!-- Title -->
+      <h2 style="font-family: var(--font-serif); font-size: clamp(2.2rem, 3.8vw, 3.2rem); color: var(--text-dark); font-weight: 400; line-height: 1.18; margin-bottom: 18px; letter-spacing: -0.3px;">
+        Ready to Build Your Business <br>
+        <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold); font-weight: 400;">in the UAE &amp; Globally?</em>
+      </h2>
+
+      <!-- Description -->
+      <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.78; margin-bottom: 28px; max-width: 720px; margin-left: auto; margin-right: auto;">
+        Tell us what you are looking to achieve. Maven Consults helps founders, investors, and enterprise leaders evaluate jurisdictions, select appropriate structures, and execute setup with complete legal precision.
+      </p>
+
+      <!-- 3 Minimal Bullet Highlights Strip -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; font-size: 13px; color: var(--text-muted);">
+        <span><strong style="color: var(--brand-gold);">✦</strong> Structured Jurisdiction Scoping</span>
+        <span style="color: rgba(160,131,88,0.3);">&bull;</span>
+        <span><strong style="color: var(--brand-gold);">✦</strong> Fast-Track Government Clearance</span>
+        <span style="color: rgba(160,131,88,0.3);">&bull;</span>
+        <span><strong style="color: var(--brand-gold);">✦</strong> 100% Confidential Advisory</span>
+      </div>
+
+      <!-- Single Primary Action Ribbon -->
+      <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 24px;">
+        <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding: 15px 38px; font-size: 11px; letter-spacing: 2px; text-decoration: none;">
+          BOOK CONSULTATION ↗
+        </a>
+      </div>
+
+      <!-- Minimal Compliance Line -->
+      <span style="font-size: 11px; color: var(--text-muted); display: inline-block;">
+        <i class="fa-solid fa-lock" style="font-size: 10px; color: var(--brand-gold); margin-right: 4px;"></i> Strict NDA &amp; UAE Non-Disclosure Standards Applied
+      </span>
+
+    </div>
+  </section>
+<footer style="padding:50px 0 24px 0;background:var(--bg-color);border-top:1px solid rgba(160,131,88,0.25);position:relative;overflow:hidden;">
+
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-family:'Bodoni Moda',serif;font-size:clamp(4rem,10vw,8rem);color:rgba(160,131,88,0.025);pointer-events:none;white-space:nowrap;user-select:none;letter-spacing:4px;">MAVEN CONSULTS</div>
+
+    <div class="section-container" style="position:relative;z-index:2;">
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start;padding-bottom:36px;border-bottom:1px solid rgba(160,131,88,0.2);">
+
+        <div><span style="font-size:10.5px;font-weight:700;letter-spacing:2px;color:var(--brand-gold);text-transform:uppercase;margin-bottom:14px;display:inline-block;">✦ MAVEN CONSULTS</span><h3 style="font-family:'Bodoni Moda',serif;font-size:clamp(1.8rem,3.2vw,2.6rem);color:var(--text-dark);font-weight:400;line-height:1.25;margin-bottom:16px;">Structured Solutions, <em>Built Around You.</em></h3><p style="font-size:13.5px;color:var(--text-muted);line-height:1.7;max-width:480px;margin-bottom:24px;">Business setup, specialised licensing, corporate services and compliance support across the UAE and selected international jurisdictions.</p><a href="contact.html" class="arrow-link" style="font-size:12px;letter-spacing:2.2px;font-weight:700;padding-bottom:6px;border-bottom:1.5px solid var(--brand-gold);">SCHEDULE A CONSULTATION <span class="arrow-icon">↗</span></a></div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">PRACTICES</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="company-formation.html" style="color:var(--text-muted);text-decoration:none;">Company Formation</a></li><li><a href="licensing.html" style="color:var(--text-muted);text-decoration:none;">Specialised Licensing</a></li><li><a href="offshore-company-formation.html" style="color:var(--text-muted);text-decoration:none;">Offshore Setup</a></li><li><a href="pro-services.html" style="color:var(--text-muted);text-decoration:none;">PRO &amp; Visas</a></li><li><a href="services.html#security" style="color:var(--text-muted);text-decoration:none;">Compliance &amp; VAT</a></li></ul></div>
+
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">LICENSING</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="licensing/forex-cfd.html" style="color:var(--text-muted);text-decoration:none;">Forex &amp; CFD</a></li><li><a href="licensing/crypto-virtual-assets.html" style="color:var(--text-muted);text-decoration:none;">Crypto &amp; Virtual Assets</a></li><li><a href="licensing/payments-fintech.html" style="color:var(--text-muted);text-decoration:none;">Payments &amp; Fintech</a></li><li><a href="licensing/online-gambling.html" style="color:var(--text-muted);text-decoration:none;">Online Gambling</a></li><li><a href="licensing/trust-formation.html" style="color:var(--text-muted);text-decoration:none;">Trust Formation</a></li></ul></div>
+
+          <div><h5 style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-dark);text-transform:uppercase;margin-bottom:16px;">NAVIGATION</h5><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13px;"><li><a href="index.html" style="color:var(--text-muted);text-decoration:none;">Home</a></li><li><a href="about.html" style="color:var(--text-muted);text-decoration:none;">About Us</a></li><li><a href="services.html" style="color:var(--text-muted);text-decoration:none;">Services</a></li><li><a href="blog.html" style="color:var(--text-muted);text-decoration:none;">Insights</a></li><li><a href="contact.html" style="color:var(--text-muted);text-decoration:none;">Contact</a></li></ul></div>
+
+        </div>
+
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(160,131,88,0.15);flex-wrap:wrap;gap:16px;"><div style="display:flex;align-items:center;gap:20px;font-size:11px;letter-spacing:1.5px;color:var(--text-muted);text-transform:uppercase;"><span>ACCOUNTING</span> • <span>BOOKKEEPING</span> • <span>FINANCIAL REPORTING</span> • <span>YEAR-END SUPPORT</span></div><div style="font-size:11.5px;color:var(--brand-gold);font-weight:600;letter-spacing:1.5px;">✦ UAE BUSINESS FINANCIAL SERVICES</div></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 0 24px;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--text-muted);"><div>© 2026 Maven Consults. All rights reserved.</div><div style="display:flex;gap:24px;"><a href="#" style="color:var(--text-muted);text-decoration:none;">Privacy Policy</a><a href="#" style="color:var(--text-muted);text-decoration:none;">Terms of Business</a><a href="#" style="color:var(--text-muted);text-decoration:none;">Disclaimer</a></div></div>
+
+    </div>
+
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+  <script>
+
+    function toggleAcctFaq(qEl) {
+
+      const answer = qEl.nextElementSibling;
+
+      const icon   = qEl.querySelector('.acct-faq-icon');
+
+      const isOpen = answer.classList.contains('open');
+
+      document.querySelectorAll('.acct-faq-a').forEach(a => a.classList.remove('open'));
+
+      document.querySelectorAll('.acct-faq-icon').forEach(i => { i.textContent = '+'; });
+
+      if (!isOpen) { answer.classList.add('open'); icon.textContent = '×'; }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
