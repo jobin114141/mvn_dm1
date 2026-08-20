@@ -356,8 +356,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (trigger) {
       trigger.addEventListener('click', (e) => {
+        e.preventDefault();
         if (window.innerWidth <= 1024) {
-          e.preventDefault();
           wrapper.classList.toggle('active');
         }
       });
