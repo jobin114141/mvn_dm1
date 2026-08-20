@@ -3,7 +3,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   // 0. SMART NAVBAR SCROLL DIRECTION LOGIC (Hide on scroll down, reveal on scroll up)
   const mainNavbar = document.querySelector('.navbar');
   if (mainNavbar) {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Scrolling Down past threshold (100px) -> Hide Navbar
       if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
         mainNavbar.classList.add('nav-hidden');
-      } 
+      }
       // Scrolling Up -> Reveal / Show Navbar
       else if (currentScrollPosition < lastScrollPosition) {
         mainNavbar.classList.remove('nav-hidden');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data && serviceImg) {
         // Fade out
         serviceImg.style.opacity = '0';
-        
+
         setTimeout(() => {
           serviceImg.src = data.imgSrc;
           serviceImg.alt = data.imgAlt;
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. ACCORDION IN MINIMALIST ADVOCACY & COMMITMENT SECTION
-  window.toggleCommitmentAcc = function(clickedItem) {
+  window.toggleCommitmentAcc = function (clickedItem) {
     const parentContainer = clickedItem.parentElement || document;
     const allItems = parentContainer.querySelectorAll('.accordion-item');
     const isActive = clickedItem.classList.contains('active');
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scopeBtns = document.querySelectorAll('.estimator-scope-btn');
   const timelineSlider = document.getElementById('timelineSlider');
   const timelineVal = document.getElementById('timelineValue');
-  
+
   const resTimeline = document.getElementById('resTimeline');
   const resTeam = document.getElementById('resTeam');
   const resJurisdiction = document.getElementById('resJurisdiction');
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timelineVal.textContent = `${months} ${months === 1 ? 'Month' : 'Months'}`;
 
     const data = estimatorData[activeDomain] || estimatorData.family;
-    
+
     if (resTitle) resTitle.textContent = data.title;
     if (resTimeline) resTimeline.textContent = `${months} Months (Dedicated Timeline Focus)`;
     if (resJurisdiction) resJurisdiction.textContent = data.jurisdiction;
@@ -348,10 +348,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7b. SERVICES MEGA MENU MOBILE / TAP TOGGLE
+  // 7b. SERVICES MEGA MENU DESKTOP & MOBILE TOGGLE SYSTEM
   const dropdownWrappers = document.querySelectorAll('.nav-dropdown-wrapper');
   dropdownWrappers.forEach(wrapper => {
     const trigger = wrapper.querySelector('.nav-dropdown-trigger');
+    let hoverTimeout;
+
     if (trigger) {
       trigger.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
@@ -360,6 +362,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+
+    wrapper.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 1024) {
+        clearTimeout(hoverTimeout);
+        wrapper.classList.add('active');
+      }
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 1024) {
+        hoverTimeout = setTimeout(() => {
+          wrapper.classList.remove('active');
+        }, 180);
+      }
+    });
   });
 
   // 8. INTERACTIVE ADVOCACY MATRIX SWITCHER (ABOUT PAGE)
@@ -816,7 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentExpertiseIdx = 0;
 
-  window.changeExpertiseSlide = function(direction) {
+  window.changeExpertiseSlide = function (direction) {
     currentExpertiseIdx = (currentExpertiseIdx + direction + globalExpertiseSlides.length) % globalExpertiseSlides.length;
     const slide = globalExpertiseSlides[currentExpertiseIdx];
 
@@ -866,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 17. OUR APPROACH SCHEDULE ACCORDION CONTROLLER
-  window.toggleApproachStep = function(clickedItem) {
+  window.toggleApproachStep = function (clickedItem) {
     const parentContainer = clickedItem.parentElement || document;
     const allItems = parentContainer.querySelectorAll('.schedule-acc-item');
     const isActive = clickedItem.classList.contains('active');
@@ -874,7 +891,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isActive) {
       allItems.forEach(i => i.classList.remove('active'));
       clickedItem.classList.add('active');
-      
+
       const newImg = clickedItem.getAttribute('data-img');
       const scheduleLeftImg = document.querySelector('.schedule-left-img');
       if (scheduleLeftImg && newImg) {
@@ -999,5 +1016,34 @@ document.addEventListener('DOMContentLoaded', () => {
       renderTestimonialSlide(currentTestimonialIdx);
     });
   }
+
+  // DYNAMIC MEGA MENU HOVER PREVIEW LOGIC (Scoped per dropdown panel)
+  const megaPanels = document.querySelectorAll('.mega-dropdown-panel');
+
+  megaPanels.forEach(panel => {
+    const hoverLinks = panel.querySelectorAll('.jurisdiction-hover-link');
+    const infoPanels = panel.querySelectorAll('.jurisdiction-info-panel');
+
+    if (hoverLinks.length > 0 && infoPanels.length > 0) {
+      hoverLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          const targetId = link.getAttribute('data-target');
+
+          // Scoped link active toggle
+          hoverLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+
+          // Scoped panel active toggle
+          infoPanels.forEach(info => {
+            if (info.id === targetId) {
+              info.classList.add('active');
+            } else {
+              info.classList.remove('active');
+            }
+          });
+        });
+      });
+    }
+  });
 
 });
