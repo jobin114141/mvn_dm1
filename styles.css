@@ -51,7 +51,7 @@
 }
 
 .lic-jur-name {
-  font-family: var(--font-serif, 'Bodoni Moda', serif);
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--text-dark, #141414);
@@ -196,7 +196,7 @@
   --watermark-color: rgba(160, 131, 88, 0.14);
 
   /* TYPOGRAPHY FAMILY SYSTEM */
-  --font-serif: 'Bodoni Moda SC', 'Playfair Display', 'Cormorant Garamond', serif;
+  --font-serif: 'Cormorant Garamond', 'Bodoni Moda SC', 'Playfair Display', serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* STANDARDIZED TYPOGRAPHIC FONT SIZES & LINE HEIGHTS */
@@ -1555,7 +1555,7 @@ header.header:not(.hero-reveal),
 .statue-container {
   position: relative;
   z-index: 4;
-  margin-top: 8px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
