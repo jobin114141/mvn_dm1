@@ -14,6 +14,55 @@
   display: flex;
 }
 
+/* Jurisdiction Showcase Cards System */
+.lic-jur-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.lic-jur-card-visual {
+  border: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+.lic-jur-img-wrap {
+  height: 220px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.lic-jur-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+  background: transparent;
+}
+
+.lic-jur-content {
+  padding: 18px 16px;
+  background: transparent;
+}
+
+.lic-jur-name {
+  font-family: var(--font-serif, 'Bodoni Moda', serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-dark, #141414);
+  margin-bottom: 6px;
+}
+
+.lic-jur-note {
+  font-size: 12.5px;
+  color: var(--text-muted, #555555);
+  line-height: 1.55;
+  margin: 0;
+}
+
 .minimal-editorial-footer {
   background-color: var(--bg-color);
   padding: 30px 0 0px 0 !important;
