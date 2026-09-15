@@ -183,127 +183,74 @@
           </p>
         </div>
 
-        <!-- 2-Column Minimal Glassmorphism Container Split -->
-        <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: start; background: rgba(255,255,255,0.75); backdrop-filter: blur(20px); border: 1px solid rgba(160,131,88,0.22); padding: clamp(32px, 5vw, 56px); box-shadow: 0 30px 70px rgba(56,39,28,0.05); position: relative;">
+        <!-- Direct Contact Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 960px; margin: 0 auto 48px auto;">
           
-          <!-- Left Column: Advisory Value & Direct Contacts -->
-          <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; gap: 36px;">
+          <!-- Phone Card -->
+          <div style="background: #fff; border: 1px solid rgba(160,131,88,0.22); padding: 36px 28px; text-align: center; box-shadow: 0 15px 40px rgba(56,39,28,0.04);">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+              <i class="fa-solid fa-phone" style="font-size: 18px; color: var(--brand-gold);"></i>
+            </div>
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase; display: block; margin-bottom: 8px;">PHONE ENQUIRIES</span>
+            <a href="tel:+971522667699" style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: 1.25rem; font-weight: 500; color: var(--text-dark); text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease;">+971 52 266 7699</a>
+            <span style="font-size: 12.5px; color: var(--text-muted);">Direct line for client advisory &amp; scoping</span>
+          </div>
+
+          <!-- Email Card -->
+          <div style="background: #fff; border: 1px solid rgba(160,131,88,0.22); padding: 36px 28px; text-align: center; box-shadow: 0 15px 40px rgba(56,39,28,0.04);">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+              <i class="fa-solid fa-envelope" style="font-size: 18px; color: var(--brand-gold);"></i>
+            </div>
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase; display: block; margin-bottom: 8px;">EMAIL ADVISORY</span>
+            <a href="mailto:info@mavenconsults.com" style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: 1.15rem; font-weight: 500; color: var(--text-dark); text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease;">info@mavenconsults.com</a>
+            <span style="font-size: 12.5px; color: var(--text-muted);">Confidential proposals &amp; documentation</span>
+          </div>
+
+          <!-- WhatsApp Card -->
+          <div style="background: #fff; border: 1px solid rgba(160,131,88,0.22); padding: 36px 28px; text-align: center; box-shadow: 0 15px 40px rgba(56,39,28,0.04);">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto;">
+              <i class="fa-brands fa-whatsapp" style="font-size: 20px; color: var(--brand-gold);"></i>
+            </div>
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase; display: block; margin-bottom: 8px;">WHATSAPP ADVISORY</span>
+            <a href="https://wa.me/971522667699" target="_blank" style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: 1.25rem; font-weight: 500; color: var(--text-dark); text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease;">+971 52 266 7699</a>
+            <span style="font-size: 12.5px; color: var(--text-muted);">Instant messaging &amp; quick consultation</span>
+          </div>
+
+        </div>
+
+        <!-- Executive Counsel Bullets -->
+        <div style="max-width: 960px; margin: 0 auto; background: rgba(255,255,255,0.75); backdrop-filter: blur(20px); border: 1px solid rgba(160,131,88,0.22); padding: clamp(28px, 4vw, 44px);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; color: var(--text-dark); margin: 0 0 24px 0; text-align: center;">
+            Executive Counsel &amp; <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold);">Jurisdiction Scoping</em>
+          </h3>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
             
-            <div style="display: flex; flex-direction: column; gap: 24px;">
-              <h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; color: var(--text-dark); margin: 0; line-height: 1.3;">
-                Executive Counsel &amp; <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold);">Jurisdiction Scoping.</em>
-              </h3>
-
-              <!-- 3 Feature Bullets -->
-              <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 8px;">
-                
-                <div style="display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: rgba(160,131,88,0.035); border-left: 3px solid var(--brand-gold);">
-                  <i class="fa-solid fa-compass" style="font-size: 16px; color: var(--brand-gold); margin-top: 3px; flex-shrink: 0;"></i>
-                  <div>
-                    <strong style="font-size: 13.5px; color: var(--text-dark); display: block; margin-bottom: 3px;">Structured Jurisdiction Scoping</strong>
-                    <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; display: block;">Direct alignment across Dubai Mainland, 40+ Free Zones, and Offshore hubs.</span>
-                  </div>
-                </div>
-
-                <div style="display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: rgba(160,131,88,0.035); border-left: 3px solid var(--brand-gold);">
-                  <i class="fa-solid fa-bolt" style="font-size: 16px; color: var(--brand-gold); margin-top: 3px; flex-shrink: 0;"></i>
-                  <div>
-                    <strong style="font-size: 13.5px; color: var(--text-dark); display: block; margin-bottom: 3px;">Fast-Track Government Clearance</strong>
-                    <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; display: block;">Direct liaison with DET, Free Zone Authorities, and Ministry registrars.</span>
-                  </div>
-                </div>
-
-                <div style="display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: rgba(160,131,88,0.035); border-left: 3px solid var(--brand-gold);">
-                  <i class="fa-solid fa-user-shield" style="font-size: 16px; color: var(--brand-gold); margin-top: 3px; flex-shrink: 0;"></i>
-                  <div>
-                    <strong style="font-size: 13.5px; color: var(--text-dark); display: block; margin-bottom: 3px;">100% Confidential Advisory</strong>
-                    <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; display: block;">Strict privacy standards for international holding structures and asset governance.</span>
-                  </div>
-                </div>
-
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; background: rgba(160,131,88,0.035); border-left: 3px solid var(--brand-gold);">
+              <i class="fa-solid fa-compass" style="font-size: 16px; color: var(--brand-gold); margin-top: 3px; flex-shrink: 0;"></i>
+              <div>
+                <strong style="font-size: 13.5px; color: var(--text-dark); display: block; margin-bottom: 3px;">Structured Jurisdiction Scoping</strong>
+                <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; display: block;">Direct alignment across Dubai Mainland, 40+ Free Zones, and Offshore hubs.</span>
               </div>
             </div>
 
-            <!-- Direct Contact Info Strip -->
-            <div style="border-top: 1px solid rgba(160,131,88,0.18); padding-top: 24px; display: flex; flex-direction: column; gap: 14px;">
-              <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase;">DIRECT ADVISORY CHANNELS</span>
-              
-              <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-                <a href="tel:+971522667699" style="font-size: 13px; font-weight: 700; color: var(--text-dark); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-                  <i class="fa-solid fa-phone" style="font-size: 11px; color: var(--brand-gold);"></i> +971 52 266 7699
-                </a>
-                
-                <a href="mailto:info@mavenconsults.com" style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--brand-gold); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                  INFO@MAVENCONSULTS.COM &rarr;
-                </a>
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; background: rgba(160,131,88,0.035); border-left: 3px solid var(--brand-gold);">
+              <i class="fa-solid fa-bolt" style="font-size: 16px; color: var(--brand-gold); margin-top: 3px; flex-shrink: 0;"></i>
+              <div>
+                <strong style="font-size: 13.5px; color: var(--text-dark); display: block; margin-bottom: 3px;">Fast-Track Government Clearance</strong>
+                <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; display: block;">Direct liaison with DET, Free Zone Authorities, and Ministry registrars.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 16px; align-items: flex-start; padding: 18px; background: rgba(160,131,88,0.035); border-left: 3px solid var(--brand-gold);">
+              <i class="fa-solid fa-user-shield" style="font-size: 16px; color: var(--brand-gold); margin-top: 3px; flex-shrink: 0;"></i>
+              <div>
+                <strong style="font-size: 13.5px; color: var(--text-dark); display: block; margin-bottom: 3px;">100% Confidential Advisory</strong>
+                <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; display: block;">Strict privacy standards for international holding structures and asset governance.</span>
               </div>
             </div>
 
           </div>
-
-          <!-- Right Column: Minimal Blending Advisory Form -->
-          <div style="background: #fff; border: 1px solid rgba(160,131,88,0.2); padding: clamp(28px, 4vw, 40px); position: relative;">
-            
-            <div style="margin-bottom: 24px;">
-              <h4 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-dark); margin: 0 0 6px 0; font-weight: 500;">Book Your Advisory Session.</h4>
-              <p style="font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.5;">Fill in your details below for a confidential scoping proposal within 2 hours.</p>
-            </div>
-
-            <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you. Your consultation request has been submitted securely under strict NDA standards.');" style="display: flex; flex-direction: column; gap: 18px;">
-              
-              <!-- Full Name -->
-              <div>
-                <label style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-dark); text-transform: uppercase; display: block; margin-bottom: 6px;">YOUR FULL NAME *</label>
-                <input type="text" placeholder="e.g. Alexander Wright" required style="width: 100%; padding: 12px 14px; font-size: 13.5px; border: 1px solid rgba(160,131,88,0.25); background: rgba(246,241,235,0.3); color: var(--text-dark); outline: none; font-family: inherit; transition: border-color 0.3s ease;">
-              </div>
-
-              <!-- Grid: Email & Phone -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                <div>
-                  <label style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-dark); text-transform: uppercase; display: block; margin-bottom: 6px;">EMAIL ADDRESS *</label>
-                  <input type="email" placeholder="name@company.com" required style="width: 100%; padding: 12px 14px; font-size: 13.5px; border: 1px solid rgba(160,131,88,0.25); background: rgba(246,241,235,0.3); color: var(--text-dark); outline: none; font-family: inherit; transition: border-color 0.3s ease;">
-                </div>
-                <div>
-                  <label style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-dark); text-transform: uppercase; display: block; margin-bottom: 6px;">PHONE / WHATSAPP *</label>
-                  <input type="tel" placeholder="+971 -- --- ----" required style="width: 100%; padding: 12px 14px; font-size: 13.5px; border: 1px solid rgba(160,131,88,0.25); background: rgba(246,241,235,0.3); color: var(--text-dark); outline: none; font-family: inherit; transition: border-color 0.3s ease;">
-                </div>
-              </div>
-
-              <!-- Area of Advisory Dropdown -->
-              <div>
-                <label style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-dark); text-transform: uppercase; display: block; margin-bottom: 6px;">AREA OF ADVISORY *</label>
-                <select required style="width: 100%; padding: 12px 14px; font-size: 13px; border: 1px solid rgba(160,131,88,0.25); background: rgba(246,241,235,0.3); color: var(--text-dark); outline: none; font-family: inherit;">
-                  <option value="offshore">Offshore Company Formation (JAFZA / RAK ICC / Ajman)</option>
-                  <option value="freezone">Dubai &amp; UAE Free Zone Company Setup</option>
-                  <option value="mainland">UAE Mainland &amp; DET Company Incorporation</option>
-                  <option value="licensing">Financial, Crypto &amp; Specialized Regulatory Licensing</option>
-                  <option value="pro">PRO, Visa Sponsorship &amp; Corporate Compliance</option>
-                  <option value="vat">VAT, Accounting &amp; Corporate Tax Advisory</option>
-                </select>
-              </div>
-
-              <!-- Project Objectives Summary -->
-              <div>
-                <label style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-dark); text-transform: uppercase; display: block; margin-bottom: 6px;">PROJECT / OBJECTIVES SUMMARY</label>
-                <textarea rows="3" placeholder="Tell us briefly about your business activity, planned timeframe, or specific requirements..." style="width: 100%; padding: 12px 14px; font-size: 13px; border: 1px solid rgba(160,131,88,0.25); background: rgba(246,241,235,0.3); color: var(--text-dark); outline: none; font-family: inherit; resize: vertical;"></textarea>
-              </div>
-
-              <!-- Submit Button -->
-              <button type="submit" class="btn-ribbon gold-ribbon-btn" style="width: 100%; padding: 15px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; cursor: pointer; border: none;">
-                SUBMIT CONSULTATION REQUEST ↗
-              </button>
-
-              <!-- NDA Compliance Badge -->
-              <div style="text-align: center; margin-top: 8px;">
-                <span style="font-size: 11px; color: var(--text-muted); display: inline-flex; align-items: center; gap: 6px;">
-                  <i class="fa-solid fa-lock" style="font-size: 10px; color: var(--brand-gold);"></i> Strict NDA &amp; UAE Non-Disclosure Standards Applied
-                </span>
-              </div>
-
-            </form>
-
-          </div>
-
         </div>
 
       </div>
