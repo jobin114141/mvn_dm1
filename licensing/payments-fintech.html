@@ -135,9 +135,7 @@
 
     <main class="hero-main" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 60px var(--container-padding, 40px) 40px var(--container-padding, 40px); position: relative; z-index: 2; min-height: 70vh; justify-content: center;">
       <div class="hero-reveal" style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <span class="label-pill" style="font-size: 10px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; padding: 6px 18px; background: rgba(160,131,88,0.08); border: 1px solid rgba(160,131,88,0.25); color: var(--brand-gold); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;">
-          ✦ FINTECH & PAYMENT INSTITUTION REGULATION
-        </span>
+        
 
         <h1 style="font-family: var(--font-serif, 'Bodoni Moda', serif); font-size: clamp(2.3rem, 4.2vw, 3.6rem); font-weight: 400; color: var(--text-dark, #141414); line-height: 1.16; margin-bottom: 18px; letter-spacing: -0.5px;">
           Payments & Fintech <em style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--brand-gold, #a08358); font-weight: 400;">Licensing Advisory.</em>
@@ -304,94 +302,173 @@
   </section>
 
 
+  
+  <!-- SECTION 6: OUR PROCESS -->
   <section style="padding: 90px 0; background: var(--bg-color);">
     <div class="section-container">
-  <!-- SECTION 2: SERVICE OVERVIEW & FINTECH SPECTRUM -->
-  <section id="service-overview" style="padding: 90px 0; background: var(--bg-color);">
+      <div style="margin: 0 auto 50px auto; max-width: 800px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <span class="label-pill" style="margin-bottom: 14px;">✦ OUR PROCESS</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 400; color: var(--text-dark); line-height: 1.25;">
+          Understand → Evaluate → Prepare → <em>Establish → Support</em>
+        </h2>
+      </div>
+      <div>
+        <div class="sub-lic-process-row">
+          <div class="sub-lic-process-header" onclick="toggleSubProcess(this)">
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase;">STEP 01</span>
+            <span style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark);">Understand Your Payment Model</span>
+            <span style="font-size: 16px; color: var(--brand-gold); transition: transform 0.3s ease;">↗</span>
+          </div>
+          <div class="sub-lic-process-body"><div class="sub-lic-process-body-inner">We begin by evaluating your payment flow, merchant acquiring model, e-money issuance scope, and target transaction volumes to determine exact licensing needs.</div></div>
+        </div>
+        <div class="sub-lic-process-row">
+          <div class="sub-lic-process-header" onclick="toggleSubProcess(this)">
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase;">STEP 02</span>
+            <span style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark);">Evaluate Regulator &amp; Banking Options</span>
+            <span style="font-size: 16px; color: var(--brand-gold); transition: transform 0.3s ease;">↗</span>
+          </div>
+          <div class="sub-lic-process-body"><div class="sub-lic-process-body-inner">We analyze central bank licensing regimes (e.g. UAE CBUAE / DFSA / ADGM or EU EMI) alongside correspondent banking and safeguarding account feasibility.</div></div>
+        </div>
+        <div class="sub-lic-process-row">
+          <div class="sub-lic-process-header" onclick="toggleSubProcess(this)">
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase;">STEP 03</span>
+            <span style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark);">Prepare Compliance &amp; Capital</span>
+            <span style="font-size: 16px; color: var(--brand-gold); transition: transform 0.3s ease;">↗</span>
+          </div>
+          <div class="sub-lic-process-body"><div class="sub-lic-process-body-inner">We structure mandatory safeguarding policies, AML/CFT transaction monitoring systems, key officer appointments (MLRO / Compliance Officer), and paid-up capital verification.</div></div>
+        </div>
+        <div class="sub-lic-process-row">
+          <div class="sub-lic-process-header" onclick="toggleSubProcess(this)">
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase;">STEP 04</span>
+            <span style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark);">Apply &amp; Establish</span>
+            <span style="font-size: 16px; color: var(--brand-gold); transition: transform 0.3s ease;">↗</span>
+          </div>
+          <div class="sub-lic-process-body"><div class="sub-lic-process-body-inner">We submit full regulatory documentation to the licensing body, manage regulatory queries, and assist in securing operational approval.</div></div>
+        </div>
+        <div class="sub-lic-process-row">
+          <div class="sub-lic-process-header" onclick="toggleSubProcess(this)">
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase;">STEP 05</span>
+            <span style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark);">Banking &amp; Ongoing Compliance</span>
+            <span style="font-size: 16px; color: var(--brand-gold); transition: transform 0.3s ease;">↗</span>
+          </div>
+          <div class="sub-lic-process-body"><div class="sub-lic-process-body-inner">We facilitate client money safeguarding bank accounts, settlement rails connection, and ongoing regulatory reporting compliance.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: WHY MAVEN -->
+  <section style="padding: 90px 0; background: var(--bg-color);">
     <div class="section-container">
-      <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 72px; align-items: start; margin-bottom: 54px;">
+      <div style="margin: 0 auto 50px auto; max-width: 800px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <span class="label-pill" style="margin-bottom: 14px;">✦ WHY MAVEN</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 400; color: var(--text-dark); line-height: 1.25; margin-bottom: 14px;">
+          Navigate Fintech Complexity With a <em>Clearer Perspective</em>
+        </h2>
+        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 680px;">Securing a payments or EMI licence requires aligning technical payment flow with central bank regulatory expectations and banking clearing access.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px;">
+        <div style="padding: 26px 22px; border-left: 2px solid var(--brand-gold); background: rgba(160,131,88,0.025);">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px;">01</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px;">Fintech Sector Expertise</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.65;">Deep technical understanding of PSP, EMI, remittance, and open banking licensing frameworks.</p>
+        </div>
+        <div style="padding: 26px 22px; border-left: 2px solid var(--brand-gold); background: rgba(160,131,88,0.025);">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px;">02</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px;">Banking Network Access</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.65;">Direct relationships to help secure safeguarding accounts and correspondent clearing banks.</p>
+        </div>
+        <div style="padding: 26px 22px; border-left: 2px solid var(--brand-gold); background: rgba(160,131,88,0.025);">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px;">03</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px;">Structured Roadmap</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.65;">Methodical progression from business plan drafting to regulator presentation and authorization.</p>
+        </div>
+        <div style="padding: 26px 22px; border-left: 2px solid var(--brand-gold); background: rgba(160,131,88,0.025);">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px;">04</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px;">Full Ecosystem Support</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.65;">Integration with corporate setup, resident visas, AML compliance officer outsourcing, and auditing.</p>
+        </div>
+        <div style="padding: 26px 22px; border-left: 2px solid var(--brand-gold); background: rgba(160,131,88,0.025);">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 10px;">05</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px;">Pragmatic Advisory</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.65;">Clear guidance on capital sizing, operational substance, and realistic regulatory timelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: FAQS -->
+  <section style="padding: 90px 0; background: rgba(160,131,88,0.02);">
+    <div class="section-container">
+      <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start;">
         <div style="position: sticky; top: 80px;">
-          <span class="label-pill" style="margin-bottom: 14px; display: inline-block;">✦ SERVICE OVERVIEW</span>
-          <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; color: var(--text-dark); line-height: 1.28; margin-bottom: 16px;">What Does Payments &amp; Fintech <em>Licensing Involve?</em></h2>
-          <a href="../contact.html" class="arrow-link" style="font-size: 11.5px; letter-spacing: 2px; font-weight: 700; padding-bottom: 6px; border-bottom: 1.5px solid var(--brand-gold);">BOOK A CONSULTATION <span class="arrow-icon">↗</span></a>
+          <span class="label-pill" style="margin-bottom: 14px; display: inline-block;">✦ FAQ</span>
+          <h2 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 2.8vw, 2.2rem); font-weight: 400; color: var(--text-dark); line-height: 1.28; margin-bottom: 14px;">Payments &amp; Fintech <em>Questions</em></h2>
+          <a href="../contact.html" style="color: var(--brand-gold); font-size: 13px; text-decoration: none; font-weight: 600;">Ask Maven directly →</a>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 18px;">Payment service providers, money transfer operators and fintech platforms operate within tightly regulated financial environments. Establishing a payment or fintech business requires careful navigation of licensing frameworks, safeguarding rules and banking arrangements.</p>
-          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 18px;">Depending on the business model, licensing requirements can cover e-money issuance, merchant acquiring, payment initiation, account information services or cross-border remittance. Each activity carries specific regulatory standards.</p>
-          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.75;">Maven Consults helps fintech founders and payment operators evaluate suitable jurisdictions, structure their business model and navigate the licensing journey.</p>
-        </div>
-      </div>
-
-      <!-- BESPOKE FINTECH INFRASTRUCTURE SPECTRUM (UNIQUE TO PAYMENTS PAGE) -->
-      <div style="margin-top: 50px;">
-        <div style="text-align: center; margin-bottom: 36px;">
-          <span style="font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase; display: block; margin-bottom: 8px;">✦ FINTECH LICENSING SPECTRUM</span>
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-dark); font-weight: 400;">Payment Activities &amp; <em>Regulatory Frameworks</em></h3>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-          <div style="padding: 26px 22px; border: 1px solid rgba(160,131,88,0.18); background: rgba(160,131,88,0.02);">
-            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 6px;">SPECTRUM 01</span>
-            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px;">Payment Gateway (PSP)</h4>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Technical processing, merchant acquiring and transaction gateway authorisation without holding customer balances.</p>
+          <div class="sub-lic-faq-item">
+            <div class="sub-lic-faq-q" onclick="toggleSubFaq(this)">What is the difference between a PSP and an EMI licence? <span class="sub-lic-faq-icon">+</span></div>
+            <div class="sub-lic-faq-a"><div class="sub-lic-faq-a-inner">A Payment Service Provider (PSP) processes transactions and provides payment gateways without issuing electronic money or storing user funds. An Electronic Money Institution (EMI) is authorized to issue e-money, hold customer balances, and issue prepaid payment instruments.</div></div>
           </div>
-          <div style="padding: 26px 22px; border: 1px solid rgba(160,131,88,0.18); background: rgba(160,131,88,0.02);">
-            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 6px;">SPECTRUM 02</span>
-            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px;">Electronic Money (EMI)</h4>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Issuance of e-money, digital wallets and stored value accounts requiring strict central bank safeguarding.</p>
+          <div class="sub-lic-faq-item">
+            <div class="sub-lic-faq-q" onclick="toggleSubFaq(this)">What safeguarding rules apply to payment institutions? <span class="sub-lic-faq-icon">+</span></div>
+            <div class="sub-lic-faq-a"><div class="sub-lic-faq-a-inner">Regulators mandate that client funds must be strictly segregated from company operating funds in designated safeguarding bank accounts or backed by central bank approved liquid assets.</div></div>
           </div>
-          <div style="padding: 26px 22px; border: 1px solid rgba(160,131,88,0.18); background: rgba(160,131,88,0.02);">
-            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 6px;">SPECTRUM 03</span>
-            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px;">Remittance &amp; FX</h4>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Cross-border money transfer and foreign currency exchange services with correspondent banking requirements.</p>
+          <div class="sub-lic-faq-item">
+            <div class="sub-lic-faq-q" onclick="toggleSubFaq(this)">Are local substance and personnel required for fintech licensing? <span class="sub-lic-faq-icon">+</span></div>
+            <div class="sub-lic-faq-a"><div class="sub-lic-faq-a-inner">Yes. Regulators require key personnel — such as a Chief Executive, Money Laundering Reporting Officer (MLRO), and Risk/Compliance Officer — to be fit and proper residents within the jurisdiction.</div></div>
           </div>
-          <div style="padding: 26px 22px; border: 1px solid rgba(160,131,88,0.18); background: rgba(160,131,88,0.02);">
-            <span style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); display: block; margin-bottom: 6px;">SPECTRUM 04</span>
-            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px;">Open Banking / API</h4>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">Account Initiation (PISP) and Account Information (AISP) aggregated services under modern PSD2 standards.</p>
+          <div class="sub-lic-faq-item">
+            <div class="sub-lic-faq-q" onclick="toggleSubFaq(this)">How long does the payment licensing process take? <span class="sub-lic-faq-icon">+</span></div>
+            <div class="sub-lic-faq-a"><div class="sub-lic-faq-a-inner">Timelines vary by regulator and licence tier, typically ranging from 3 to 6 months from formal submission to in-principle or full authorization.</div></div>
+          </div>
+          <div class="sub-lic-faq-item">
+            <div class="sub-lic-faq-q" onclick="toggleSubFaq(this)">Can Maven assist with correspondent banking partnerships? <span class="sub-lic-faq-icon">+</span></div>
+            <div class="sub-lic-faq-a"><div class="sub-lic-faq-a-inner">Yes. Maven assists in introducing licensed payment entities to tier-1 banking institutions and specialized clearing networks for safeguarding accounts and FX liquidity.</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- UNIQUE IMAGE SECTION: CROSS-BORDER SETTLEMENT & EMI BANKING GALLERY -->
-  <section style="padding: 95px 0; background: rgba(160,131,88,0.02); border-top: 1px solid rgba(160,131,88,0.15); border-bottom: 1px solid rgba(160,131,88,0.15);">
+  <!-- SECTION 9: RELATED LICENSING SERVICES -->
+  <section style="padding: 90px 0; background: var(--bg-color);">
     <div class="section-container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
-        <div style="position: relative; display: flex; gap: 20px;">
-          <div style="flex: 1; border: 1px solid var(--brand-gold); padding: 8px; background: var(--bg-color); transform: translateY(-15px);">
-            <img src="../assets/van.png" alt="Executive Fintech Mobility &amp; Settlement" style="width: 100%; height: 280px; object-fit: cover;">
-            <div style="padding: 12px 10px; text-align: center; border-top: 1px solid rgba(160,131,88,0.15);">
-              <span style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--brand-gold); text-transform: uppercase;">SEPA &amp; SWIFT CLEARING</span>
-            </div>
-          </div>
-          <div style="flex: 1; border: 1px solid var(--brand-gold); padding: 8px; background: var(--bg-color); transform: translateY(15px);">
-            <img src="../assets/gavel.png" alt="Central Bank Regulatory Compliance" style="width: 100%; height: 280px; object-fit: cover;">
-            <div style="padding: 12px 10px; text-align: center; border-top: 1px solid rgba(160,131,88,0.15);">
-              <span style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--brand-gold); text-transform: uppercase;">SAFEGUARDING VAULTS</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <span class="label-pill" style="margin-bottom: 14px; display: inline-block;">✦ BANKING &amp; SETTLEMENT DESK</span>
-          <h2 style="font-family: var(--font-serif); font-size: clamp(1.9rem, 3.1vw, 2.5rem); font-weight: 400; color: var(--text-dark); line-height: 1.25; margin-bottom: 16px;">
-            Tier-1 Banking Relations &amp; <em>Payment Clearing Networks</em>
-          </h2>
-          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px;">
-            A payment or EMI licence is only as strong as its banking infrastructure. We assist payment institutions in securing client money safeguarding accounts, IBAN generation channels, and Tier-1 correspondent banking clearing relationships across Europe, the UAE, and international financial hubs.
-          </p>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--text-dark);">
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--brand-gold);">✦</span> Direct Central Bank Reserve Safeguarding Protocols</li>
-            <li style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--brand-gold);">✦</span> Multi-Currency Virtual IBAN Issuance &amp; Merchant Acquiring</li>
-          </ul>
-        </div>
+      <div style="margin: 0 auto 50px auto; max-width: 800px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <span class="label-pill" style="margin-bottom: 14px;">✦ RELATED LICENSING SERVICES</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 400; color: var(--text-dark); line-height: 1.25;">Explore Other <em>Licensing Categories</em></h2>
+      </div>
+      <div class="sub-lic-related-grid">
+        <a href="forex-cfd.html" class="sub-lic-related-card">
+          <span class="sub-lic-related-num">01</span>
+          <span class="sub-lic-related-title">Forex &amp; CFD Licensing</span>
+          <span style="font-size: 13px; color: var(--text-muted);">Brokerage authorization, FCA / CySEC / FSA frameworks & capital compliance.</span>
+          <span class="sub-lic-related-cta">EXPLORE →</span>
+        </a>
+        <a href="crypto-virtual-assets.html" class="sub-lic-related-card">
+          <span class="sub-lic-related-num">02</span>
+          <span class="sub-lic-related-title">Crypto &amp; Virtual Assets</span>
+          <span style="font-size: 13px; color: var(--text-muted);">Licensing guidance for digital asset and virtual asset service providers.</span>
+          <span class="sub-lic-related-cta">EXPLORE →</span>
+        </a>
+        <a href="trust-formation.html" class="sub-lic-related-card">
+          <span class="sub-lic-related-num">05</span>
+          <span class="sub-lic-related-title">Trust Formation</span>
+          <span style="font-size: 13px; color: var(--text-muted);">Trust structures for business, asset and wealth structuring requirements.</span>
+          <span class="sub-lic-related-cta">EXPLORE →</span>
+        </a>
+        <a href="foundation-holding-structures.html" class="sub-lic-related-card">
+          <span class="sub-lic-related-num">06</span>
+          <span class="sub-lic-related-title">Foundation &amp; Holding Structures</span>
+          <span style="font-size: 13px; color: var(--text-muted);">Structures for ownership, asset holding and long-term corporate planning.</span>
+          <span class="sub-lic-related-cta">EXPLORE →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 11: MINIMALIST FINAL CTA -->
+  <!-- SECTION: ULTRA MINIMAL BLENDING CTA BANNER -->
     <!-- SECTION: ULTRA MINIMAL BLENDING CTA BANNER -->
   <section class="services-section" id="final-cta" style="padding: 90px 0; background: var(--bg-color); border-top: 1px solid rgba(160, 131, 88, 0.15); border-bottom: 1px solid rgba(160, 131, 88, 0.15);">
     <div class="section-container" style="max-width: 860px; margin: 0 auto; text-align: center;">
