@@ -531,7 +531,7 @@ header.header:not(.hero-reveal),
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px clamp(24px, 5vw, 64px);
+  padding: 10px clamp(24px, 5vw, 64px);
   margin: 0 auto;
   background-color: rgba(246, 241, 235, 0.96);
   backdrop-filter: blur(14px);
@@ -540,6 +540,11 @@ header.header:not(.hero-reveal),
   box-shadow: 0 4px 20px rgba(56, 39, 28, 0.05);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease !important;
   will-change: transform;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
 }
 
 .navbar.nav-hidden {
@@ -554,7 +559,7 @@ header.header:not(.hero-reveal),
 
 .hero-wrapper {
   position: relative;
-  padding-top: 75px;
+  padding-top: 65px;
 }
 
 .logo {
@@ -565,10 +570,24 @@ header.header:not(.hero-reveal),
   text-decoration: none;
   letter-spacing: 0.5px;
   transition: opacity 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.logo-img {
+  height: 36px;
+  max-height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0;
+  align-self: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .logo:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .nav-center {

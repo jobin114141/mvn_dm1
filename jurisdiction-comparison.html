@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAE Offshore Jurisdiction Comparison: JAFZA vs. RAK ICC vs. Ajman | Maven Consults</title>
+  <meta name="description"
+    content="Detailed jurisdiction comparison guide: JAFZA Offshore (Dubai) vs. RAK ICC (Ras Al Khaimah) vs. Ajman Offshore. Compare taxation, banking access, governance, and asset holding rules.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cinzel:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .article-hero {
+      padding: 140px 0 60px 0;
+      background: linear-gradient(180deg, rgba(160, 131, 88, 0.06) 0%, rgba(246, 241, 235, 0) 100%);
+      text-align: center;
+      border-bottom: 1px solid rgba(160, 131, 88, 0.15);
+    }
+
+    .article-body-section {
+      padding: 70px 0 100px 0;
+      background: var(--bg-color);
+    }
+
+    .article-lead {
+      font-size: 1.35rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+      font-weight: 400;
+      margin-bottom: 44px;
+      font-family: 'Cormorant Garamond', serif;
+      max-width: 980px;
+    }
+
+    .article-section {
+      margin-bottom: 56px;
+    }
+
+    .article-h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.25;
+      font-weight: 400;
+    }
+
+    .article-p {
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .compare-table-wrapper {
+      overflow-x: auto;
+      margin: 40px 0;
+      border: 1px solid rgba(160, 131, 88, 0.2);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .jafza-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+    }
+
+    .jafza-compare-table th {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+      padding: 18px 22px;
+      border-bottom: 2px solid rgba(160, 131, 88, 0.25);
+      text-align: left;
+      background: rgba(160, 131, 88, 0.05);
+    }
+
+    .jafza-compare-table td {
+      padding: 16px 22px;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(160, 131, 88, 0.12);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    .jafza-compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .jafza-compare-table td:first-child {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 13.5px;
+      width: 220px;
+      background: rgba(160, 131, 88, 0.02);
+    }
+
+    .jafza-compare-table .highlight-col {
+      background: rgba(160, 131, 88, 0.04);
+    }
+
+    .jurisdiction-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .jurisdiction-card {
+      background: #ffffff;
+      border: 1px solid rgba(160, 131, 88, 0.2);
+      padding: 30px;
+      border-radius: 4px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .jurisdiction-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-gold);
+    }
+
+    .jurisdiction-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .jurisdiction-card-location {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .key-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .key-list li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .key-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--brand-gold);
+      font-size: 11px;
+    }
+
+    @media (max-width: 768px) {
+      .jafza-compare-table th,
+      .jafza-compare-table td {
+        padding: 12px 12px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Hero Wrapper -->
+  <div class="hero-wrapper blog-hero-wrapper" id="home">
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="index.html" class="logo"><img src="assets/logos/Artboard 1 copy 6Maven Logo.png" alt="MAVEN CONSULTS" class="logo-img"></a>
+      </div>
+
+      <nav class="nav-center" id="navMenu">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+
+        <!-- UNIFIED SERVICES MEGA MENU -->
+        <div class="nav-dropdown-wrapper mega-wrapper">
+          <a href="#" class="nav-link nav-dropdown-trigger">
+            SERVICES <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          <div class="mega-dropdown-panel services-mega-panel">
+            <div class="services-mega-grid">
+
+              <!-- COLUMN 1: COMPANY FORMATION -->
+              <div class="services-mega-col">
+                <div class="services-mega-header">
+                  <span class="services-mega-icon"><i class="fa-solid fa-building-columns"></i></span>
+                  <span class="services-mega-title">COMPANY FORMATION</span>
+                </div>
+                <ul class="services-mega-list">
+                  <li><a href="company-formation.html"><span class="bullet">+</span> Overview &amp; Setup</a></li>
+                  <li><a href="dubai-free-zone.html"><span class="bullet">+</span> Dubai Free Zones</a></li>
+                  <li><a href="sharjah-free-zone.html"><span class="bullet">+</span> Sharjah Free Zones</a></li>
+                  <li><a href="rak-free-zone.html"><span class="bullet">+</span> RAK Free Zones</a></li>
+                  <li><a href="ajman-free-zone.html"><span class="bullet">+</span> Ajman Free Zones</a></li>
+                  <li><a href="dubai-mainland.html"><span class="bullet">+</span> Dubai Mainland</a></li>
+                </ul>
+              </div>
+
+              <!-- COLUMN 2: OFFSHORE FORMATION -->
+              <div class="services-mega-col">
+                <div class="services-mega-header">
+                  <span class="services-mega-icon"><i class="fa-solid fa-anchor"></i></span>
+                  <span class="services-mega-title">OFFSHORE FORMATION</span>
+                </div>
+                <ul class="services-mega-list">
+                  <li><a href="offshore-company-formation.html"><span class="bullet">+</span> Offshore Overview</a></li>
+                  <li><a href="jafza-offshore.html"><span class="bullet">+</span> JAFZA Offshore</a></li>
+                  <li><a href="rak-offshore.html"><span class="bullet">+</span> RAK Offshore</a></li>
+                  <li><a href="ajman-offshore.html"><span class="bullet">+</span> Ajman Offshore</a></li>
+                  <li><a href="mauritius-offshore.html"><span class="bullet">+</span> Mauritius</a></li>
+                  <li><a href="seychelles-offshore.html"><span class="bullet">+</span> Seychelles</a></li>
+                  <li><a href="bvi-offshore.html"><span class="bullet">+</span> BVI</a></li>
+                  <li><a href="st-louis-island-offshore.html"><span class="bullet">+</span> St Louis Island</a></li>
+                </ul>
+              </div>
+
+              <!-- COLUMN 3: SPECIALISED LICENSING -->
+              <div class="services-mega-col">
+                <div class="services-mega-header">
+                  <span class="services-mega-icon"><i class="fa-solid fa-certificate"></i></span>
+                  <span class="services-mega-title">SPECIALISED LICENSING</span>
+                </div>
+                <ul class="services-mega-list">
+                  <li><a href="licensing.html"><span class="bullet">+</span> Licensing Overview</a></li>
+                  <li><a href="licensing/forex-cfd.html"><span class="bullet">+</span> Forex &amp; CFD</a></li>
+                  <li><a href="licensing/crypto-virtual-assets.html"><span class="bullet">+</span> Crypto &amp; Virtual Assets</a></li>
+                  <li><a href="licensing/payments-fintech.html"><span class="bullet">+</span> Payments &amp; Fintech</a></li>
+                  <li><a href="licensing/trust-formation.html"><span class="bullet">+</span> Trust Formation</a></li>
+                  <li><a href="licensing/foundation-holding-structures.html"><span class="bullet">+</span> Foundations &amp; Holding</a></li>
+                </ul>
+              </div>
+
+              <!-- COLUMN 4: PRO & COMPLIANCE -->
+              <div class="services-mega-col">
+                <div class="services-mega-header">
+                  <span class="services-mega-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                  <span class="services-mega-title">PRO &amp; COMPLIANCE</span>
+                </div>
+                <ul class="services-mega-list">
+                  <li><a href="pro-services.html"><span class="bullet">+</span> PRO Services</a></li>
+                  <li><a href="visa-services.html"><span class="bullet">+</span> Visa Services</a></li>
+                  <li><a href="accounting-bookkeeping.html"><span class="bullet">+</span> Accounting &amp; Bookkeeping</a></li>
+                  <li><a href="vat-services.html"><span class="bullet">+</span> VAT Services</a></li>
+                  <li><a href="compliance-services.html"><span class="bullet">+</span> Compliance Services</a></li>
+                </ul>
+              </div>
+
+            </div>
+
+            <!-- BOTTOM BANNER RIBBON -->
+            <div class="services-mega-footer">
+              <div class="mega-footer-left">
+                <span class="mega-footer-tag">✦ TAILORED ADVISORY &amp; CORPORATE STRUCTURING</span>
+                <span class="mega-footer-desc">Navigate UAE &amp; international regulations with bespoke corporate solutions.</span>
+              </div>
+              <a href="contact.html" class="mega-footer-btn">BOOK CONSULTATION ↗</a>
+            </div>
+
+          </div>
+        </div>
+
+        <a href="blog.html" class="nav-link active">BLOG</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="contact.html" class="btn-ribbon nav-btn-compact">BOOK CONSULTATION ↗</a>
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ARTICLE HERO SECTION -->
+    <section class="article-hero">
+      <div class="section-container">
+        <span class="label-pill" style="margin-bottom:18px;display:inline-block;">&#10022; JURISDICTION COMPARISON</span>
+        <h1
+          style="font-family:var(--font-serif);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:20px;">
+          UAE Offshore Jurisdiction Comparison: <br>
+          <em style="font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--brand-gold);">JAFZA vs. RAK ICC vs. Ajman Offshore</em>
+        </h1>
+        <p style="font-size:16px;color:var(--text-muted);max-width:720px;margin:0 auto 24px auto;line-height:1.7;">
+          Choosing the right offshore jurisdiction matters. Here’s how the UAE’s three main offshore options compare across key parameters.
+        </p>
+        <div style="font-size:12px;letter-spacing:1.5px;color:var(--brand-gold);text-transform:uppercase;font-weight:600;">
+          <i class="fa-solid fa-pen-nib" style="margin-right:6px;"></i> BY OFFSHORE ADVISORY DESK &nbsp;&middot;&nbsp; 6 MIN READ &nbsp;&middot;&nbsp; AUGUST 2026
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ARTICLE CONTENT SECTION -->
+  <main class="article-body-section">
+    <div class="section-container">
+
+      <div class="article-lead">
+        The United Arab Emirates offers three prominent non-resident offshore jurisdictions—JAFZA Offshore in Dubai, RAK ICC in Ras Al Khaimah, and Ajman Offshore. While all three provide legal corporate veil protection, zero corporate tax, and 100% foreign ownership, strategic differences in banking reputation, corporate governance, real estate ownership rights, and operational costs make each uniquely suited for distinct business objectives.
+      </div>
+
+      <!-- FEATURED COMPARISON TABLE -->
+      <div class="article-section">
+        <h2 class="article-h2">Key Parameter Matrix</h2>
+        <p class="article-p">
+          Below is a comprehensive side-by-side comparison of the three primary UAE offshore authorities across administrative, regulatory, and corporate capability metrics:
+        </p>
+
+        <div class="compare-table-wrapper">
+          <table class="jafza-compare-table">
+            <thead>
+              <tr>
+                <th style="width:200px;">Feature</th>
+                <th class="highlight-col" style="background:rgba(160,131,88,0.08);">JAFZA Offshore <br><span style="color:var(--brand-gold);font-size:9px;letter-spacing:1.5px;">DUBAI</span></th>
+                <th>RAK ICC Offshore <br><span style="color:var(--text-muted);font-size:9px;letter-spacing:1.5px;">RAS AL KHAIMAH</span></th>
+                <th>Ajman Offshore <br><span style="color:var(--text-muted);font-size:9px;letter-spacing:1.5px;">AJMAN</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Location Prestige</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">Jebel Ali, Dubai</span> &mdash; highest global recognition</td>
+                <td>Ras Al Khaimah &mdash; well recognized</td>
+                <td>Ajman &mdash; emerging jurisdiction</td>
+              </tr>
+              <tr>
+                <td>Established</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">2003</span></td>
+                <td>2015 (consolidated)</td>
+                <td>2014</td>
+              </tr>
+              <tr>
+                <td>Corporate Tax</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">0%</span></td>
+                <td>0%</td>
+                <td>0%</td>
+              </tr>
+              <tr>
+                <td>Foreign Ownership</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">100%</span></td>
+                <td>100%</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>Min. Share Capital</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">Nil</span></td>
+                <td>AED 1,000</td>
+                <td>No minimum</td>
+              </tr>
+              <tr>
+                <td>Corporate Directors</td>
+                <td class="highlight-col"><span style="color:#c0392b;font-weight:600;">Not Permitted</span></td>
+                <td><span style="color:#27ae60;font-weight:600;">Permitted</span></td>
+                <td><span style="color:#c0392b;font-weight:600;">Not Permitted</span></td>
+              </tr>
+              <tr>
+                <td>Min. Directors</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">1</span></td>
+                <td>1</td>
+                <td>2 (min)</td>
+              </tr>
+              <tr>
+                <td>Formation Time</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">3&ndash;5 days</span></td>
+                <td>2&ndash;3 days</td>
+                <td>2&ndash;3 days</td>
+              </tr>
+              <tr>
+                <td>UAE Banking Access</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">Yes &mdash; strong banking access</span></td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Real Estate Ownership</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">Yes (JAFZA approved)</span></td>
+                <td>Yes (subject to approval)</td>
+                <td>Up to 3 properties</td>
+              </tr>
+              <tr>
+                <td>DTAA Treaty Access</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">40+ countries</span></td>
+                <td>40+ countries</td>
+                <td>47 countries</td>
+              </tr>
+              <tr>
+                <td>Best Suited For</td>
+                <td class="highlight-col"><span style="color:var(--brand-gold);font-weight:600;">Holding, Trading, IP, Logistics</span></td>
+                <td>General Offshore, Holding</td>
+                <td>Cost-effective Offshore</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- DETAILED JURISDICTION ANALYSIS -->
+      <div class="article-section">
+        <h2 class="article-h2">In-Depth Jurisdiction Analysis</h2>
+        
+        <div class="jurisdiction-card-grid">
+
+          <div class="jurisdiction-card">
+            <span class="jurisdiction-card-location">DUBAI</span>
+            <h3 class="jurisdiction-card-title">JAFZA Offshore</h3>
+            <p class="article-p" style="font-size:14px;margin-bottom:12px;">
+              Established in 2003 under the Jebel Ali Free Zone Authority, JAFZA Offshore is the premier offshore structure in Dubai. It holds the highest tier of global recognition among international financial institutions.
+            </p>
+            <ul class="key-list">
+              <li>Only offshore structure permitted to hold Dubai real estate directly</li>
+              <li>Unmatched global prestige &amp; corporate banking acceptance</li>
+              <li>No minimum share capital requirement</li>
+              <li>Ideal for holding company structures, IP rights &amp; logistics</li>
+            </ul>
+          </div>
+
+          <div class="jurisdiction-card">
+            <span class="jurisdiction-card-location">RAS AL KHAIMAH</span>
+            <h3 class="jurisdiction-card-title">RAK ICC Offshore</h3>
+            <p class="article-p" style="font-size:14px;margin-bottom:12px;">
+              Consolidated in 2015, Ras Al Khaimah International Corporate Centre (RAK ICC) offers a modern, highly flexible corporate framework governed by common-law principles.
+            </p>
+            <ul class="key-list">
+              <li>Allows corporate bodies to act as directors</li>
+              <li>Fast 2–3 day incorporation turnaround</li>
+              <li>Strong common-law legal foundation with DIFC/ADGM court access</li>
+              <li>Cost-efficient for general international holding &amp; asset protection</li>
+            </ul>
+          </div>
+
+          <div class="jurisdiction-card">
+            <span class="jurisdiction-card-location">AJMAN</span>
+            <h3 class="jurisdiction-card-title">Ajman Offshore</h3>
+            <p class="article-p" style="font-size:14px;margin-bottom:12px;">
+              Introduced in 2014 by the Ajman Free Zone Authority, Ajman Offshore provides a fast-track, highly economical jurisdiction designed for budget-conscious international entrepreneurs.
+            </p>
+            <ul class="key-list">
+              <li>Most budget-friendly incorporation &amp; renewal cost structure</li>
+              <li>Requires a minimum of 2 directors for enhanced corporate checks</li>
+              <li>Permits ownership of up to 3 real estate properties</li>
+              <li>DTAA Treaty access spanning 47 countries</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STRATEGIC ADVISORY & RECOMMENDATIONS -->
+      <div class="article-section">
+        <h2 class="article-h2">How to Choose the Right Offshore Jurisdiction</h2>
+        <p class="article-p">
+          Selecting the correct offshore jurisdiction depends heavily on your intended business activities, banking requirements, asset locations, and governance preferences:
+        </p>
+        <div style="background:rgba(160,131,88,0.05);padding:28px;border-left:3px solid var(--brand-gold);margin:24px 0;">
+          <h4 style="font-family:var(--font-serif);font-size:1.15rem;color:var(--text-dark);margin-bottom:10px;">Strategic Guidance:</h4>
+          <p class="article-p" style="margin-bottom:12px;">
+            <strong>Choose JAFZA Offshore</strong> if you plan to acquire property in Dubai, require maximum prestige for international bank account openings, or are structuring major intellectual property and global trading operations.
+          </p>
+          <p class="article-p" style="margin-bottom:12px;">
+            <strong>Choose RAK ICC</strong> if you require corporate directors, desire a flexible English common-law environment, or wish to structure holding entities with seamless re-domiciliation mechanisms.
+          </p>
+          <p class="article-p" style="margin-bottom:0;">
+            <strong>Choose Ajman Offshore</strong> if setup velocity and minimal annual operational maintenance costs are your top priorities for straightforward holding or global consulting activities.
+          </p>
+        </div>
+      </div>
+
+      <!-- ARTICLE CALL TO ACTION BANNER -->
+      <div style="margin-top:60px;padding:40px;background:#ffffff;border:1px solid rgba(160,131,88,0.3);text-align:center;border-radius:4px;box-shadow:0 12px 35px rgba(0,0,0,0.04);">
+        <span class="label-pill" style="margin-bottom:14px;display:inline-block;">✦ OFFSHORE STRUCTURING ADVISORY</span>
+        <h3 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--text-dark);margin-bottom:14px;font-weight:400;">
+          Need Personalised Guidance on UAE Offshore Setup?
+        </h3>
+        <p style="font-size:14.5px;color:var(--text-muted);max-width:620px;margin:0 auto 24px auto;line-height:1.7;">
+          Our offshore specialists at Maven Consults assist founders and corporate entities in evaluating jurisdiction parameters, bank account approvals, and compliance requirements.
+        </p>
+        <a href="contact.html" class="btn-ribbon gold-ribbon-btn" style="padding:14px 32px;font-size:11px;letter-spacing:2px;text-decoration:none;display:inline-block;">
+          BOOK A FREE OFFSHORE CONSULTATION ↗
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- EDITORIAL FOOTER -->
+  <footer class="minimal-editorial-footer" id="footer"
+    style="padding: 50px 0 24px 0; background: var(--bg-color); border-top: 1px solid rgba(160, 131, 88, 0.25); position: relative; overflow: hidden;">
+    <div class="section-container" style="position: relative; z-index: 2;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid rgba(160, 131, 88, 0.2);">
+        <div>
+          <span style="font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: var(--brand-gold); text-transform: uppercase; margin-bottom: 14px; display: inline-block;">
+            ✦ MAVEN CONSULTS
+          </span>
+          <h3 style="font-family: var(--font-serif); font-size: clamp(1.8rem, 3.2vw, 2.6rem); color: var(--text-dark); font-weight: 400; line-height: 1.25; margin-bottom: 16px;">
+            Structured Solutions, <em>Built Around You.</em>
+          </h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; max-width: 480px; margin-bottom: 24px;">
+            Business setup, specialised licensing, corporate services and compliance support across the UAE and selected international jurisdictions.
+          </p>
+          <a href="contact.html" class="arrow-link" style="font-size: 12px; letter-spacing: 2.2px; font-weight: 700; padding-bottom: 6px; border-bottom: 1.5px solid var(--brand-gold);">
+            SCHEDULE A CONSULTATION <span class="arrow-icon">↗</span>
+          </a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div>
+            <h5 style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--text-dark); text-transform: uppercase; margin-bottom: 16px;">PRACTICES</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <li><a href="services.html" style="color: var(--text-muted); text-decoration: none;">Company Setup</a></li>
+              <li><a href="licensing.html" style="color: var(--text-muted); text-decoration: none;">Specialised Licensing</a></li>
+              <li><a href="offshore-company-formation.html" style="color: var(--text-muted); text-decoration: none;">Offshore Setup</a></li>
+              <li><a href="pro-services.html" style="color: var(--text-muted); text-decoration: none;">PRO &amp; Visas</a></li>
+              <li><a href="compliance-services.html" style="color: var(--text-muted); text-decoration: none;">Compliance &amp; VAT</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--text-dark); text-transform: uppercase; margin-bottom: 16px;">JURISDICTIONS</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <li><a href="dubai-mainland.html" style="color: var(--text-muted); text-decoration: none;">Dubai Mainland</a></li>
+              <li><a href="dubai-free-zone.html" style="color: var(--text-muted); text-decoration: none;">UAE Free Zones</a></li>
+              <li><a href="jafza-offshore.html" style="color: var(--text-muted); text-decoration: none;">JAFZA Offshore</a></li>
+              <li><a href="rak-offshore.html" style="color: var(--text-muted); text-decoration: none;">RAK Offshore</a></li>
+              <li><a href="ajman-offshore.html" style="color: var(--text-muted); text-decoration: none;">Ajman Offshore</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--text-dark); text-transform: uppercase; margin-bottom: 16px;">NAVIGATION</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <li><a href="index.html" style="color: var(--text-muted); text-decoration: none;">Home</a></li>
+              <li><a href="about.html" style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+              <li><a href="services.html" style="color: var(--text-muted); text-decoration: none;">Services</a></li>
+              <li><a href="blog.html" style="color: var(--text-muted); text-decoration: none;">Insights</a></li>
+              <li><a href="contact.html" style="color: var(--text-muted); text-decoration: none;">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 0 24px 0; font-size: 12px; color: var(--text-muted); flex-wrap: wrap; gap: 16px;">
+        <div>© 2026 Maven Consults. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Business</a>
+          <a href="#" style="color: var(--text-muted); text-decoration: none;">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
