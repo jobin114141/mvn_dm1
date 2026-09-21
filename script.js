@@ -320,31 +320,64 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggleBtn = document.getElementById('mobileToggleBtn');
   const navMenu = document.getElementById('navMenu');
 
+  function closeMobileMenu() {
+    if (!navMenu) return;
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+    const icon = mobileToggleBtn ? mobileToggleBtn.querySelector('i') : null;
+    if (icon) {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+    // Collapse any open sub-dropdowns
+    navMenu.querySelectorAll('.nav-dropdown-wrapper.active').forEach(w => w.classList.remove('active'));
+  }
+
+  function openMobileMenu() {
+    if (!navMenu) return;
+    navMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    const icon = mobileToggleBtn ? mobileToggleBtn.querySelector('i') : null;
+    if (icon) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    }
+  }
+
   if (mobileToggleBtn && navMenu) {
-    mobileToggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const icon = mobileToggleBtn.querySelector('i');
-      if (icon) {
-        if (navMenu.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-xmark');
-        } else {
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
-        }
+    mobileToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navMenu.classList.contains('active')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
       }
     });
 
+    // Close when clicking a regular nav link (not a dropdown trigger)
     const mobileNavLinks = navMenu.querySelectorAll('.nav-link:not(.nav-dropdown-trigger)');
     mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const icon = mobileToggleBtn.querySelector('i');
-        if (icon) {
-          icon.classList.remove('fa-xmark');
-          icon.classList.add('fa-bars');
-        }
-      });
+      link.addEventListener('click', () => closeMobileMenu());
+    });
+
+    // Close mobile menu also when a mobile CTA link is clicked
+    const mobileCta = navMenu.querySelector('.nav-center-mobile-cta');
+    if (mobileCta) {
+      mobileCta.addEventListener('click', () => closeMobileMenu());
+    }
+
+    // Close when tapping the overlay backdrop (the nav-center itself, not its children)
+    navMenu.addEventListener('click', (e) => {
+      if (e.target === navMenu) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
     });
   }
 
@@ -357,7 +390,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (trigger) {
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         if (window.innerWidth <= 1024) {
+          // Close other open wrappers first
+          dropdownWrappers.forEach(w => { if (w !== wrapper) w.classList.remove('active'); });
           wrapper.classList.toggle('active');
         }
       });
@@ -1045,28 +1081,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
-  // 19. BLOG CATEGORY FILTER LOGIC
-  const filterBtns = document.querySelectorAll('.blog-filter-btn');
-  const blogCards = document.querySelectorAll('.blog-card');
-
-  if (filterBtns.length > 0 && blogCards.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter');
-        blogCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || filter === category) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
 
 });

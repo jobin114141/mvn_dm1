@@ -596,6 +596,11 @@ header.header:not(.hero-reveal),
   gap: clamp(12px, 1.6vw, 20px);
 }
 
+/* Mobile CTA button – hidden on desktop, shown only inside mobile overlay */
+.nav-center-mobile-cta {
+  display: none;
+}
+
 .nav-link {
   font-size: 11.5px;
   font-weight: 600;
@@ -1426,30 +1431,36 @@ header.header:not(.hero-reveal),
 @media (max-width: 1024px) {
   .mega-menu-dropdown,
   .mega-dropdown-panel,
+  .services-mega-panel,
   .large-mega {
-    position: static;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
     transform: none !important;
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: unset !important;
     opacity: 0;
     visibility: hidden;
     max-height: 0;
     overflow: hidden;
     pointer-events: none;
-    box-shadow: none;
+    box-shadow: none !important;
     background: rgba(240, 233, 224, 0.6);
     border: 1px solid rgba(160, 131, 88, 0.25);
     border-radius: 4px;
     padding: 0 16px;
     margin-top: 8px;
-    transition: opacity 0.3s ease, max-height 0.35s ease, padding 0.3s ease;
+    transition: opacity 0.3s ease, max-height 0.35s ease, padding 0.3s ease, visibility 0.3s ease;
   }
 
   .nav-dropdown-wrapper:hover .mega-menu-dropdown,
   .nav-dropdown-wrapper.active .mega-menu-dropdown,
   .nav-dropdown-wrapper:hover .mega-dropdown-panel,
   .nav-dropdown-wrapper.active .mega-dropdown-panel,
+  .nav-dropdown-wrapper:hover .services-mega-panel,
+  .nav-dropdown-wrapper.active .services-mega-panel,
   .nav-dropdown-wrapper:hover .large-mega,
   .nav-dropdown-wrapper.active .large-mega {
     opacity: 1;
@@ -3560,25 +3571,45 @@ header.header:not(.hero-reveal),
 
 @media (max-width: 1024px) {
 
-  /* MOBILE NAVBAR ADAPTATION (DESKTOP VIEW UNTOUCHED) */
+  /* ================================================================
+     MOBILE / TABLET NAVBAR — FULL FIX
+     Desktop (>1024px) is completely untouched.
+     ================================================================ */
+
+  /* Allow the absolute overlay to extend beyond navbar's own height */
+  .navbar {
+    overflow: visible !important;
+  }
+
+  /* --- Hamburger / close toggle button --- */
   .mobile-toggle-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     background-color: var(--brand-brown);
     color: #FFFFFF;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
-    z-index: 100;
+    /* Must sit ABOVE the overlay (z-index: 1000000) */
+    z-index: 1000000;
+    position: relative;
+    flex-shrink: 0;
     transition: background-color 0.3s ease;
   }
 
-  .mobile-toggle-btn:hover {
+  .mobile-toggle-btn:hover,
+  .mobile-toggle-btn:focus {
     background-color: #261B12;
+    outline: none;
+  }
+
+  /* Hide the desktop CTA button — only show hamburger on mobile/tablet */
+  .nav-right .btn-ribbon.nav-btn-compact {
+    display: none !important;
   }
 
   .nav-right {
@@ -3587,43 +3618,255 @@ header.header:not(.hero-reveal),
     gap: 10px;
   }
 
-  .btn-ribbon {
-    padding: 8px 14px 8px 12px;
-    font-size: 10px;
-  }
-
+  /* --- Full-screen slide-down overlay ---
+     IMPORTANT: position:absolute (NOT fixed) because .navbar has
+     backdrop-filter + will-change:transform which make it a CSS
+     containing block — position:fixed children get trapped inside
+     the navbar bar. Since .navbar is fixed at top:0 left:0 width:100%,
+     position:absolute with height:100vh covers the full viewport. */
   .nav-center {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
+    /* Sit above page content, below toggle button */
+    z-index: 999998;
     background-color: rgba(246, 241, 235, 0.98);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 22px;
-    z-index: 99;
+    justify-content: flex-start;
+    padding: 80px 24px 40px;
+    gap: 4px;
+    overflow-y: auto;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transform: translateY(-20px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transform: translateY(-8px);
+    transition: opacity 0.32s ease, transform 0.32s ease, visibility 0.32s ease;
   }
 
   .nav-center.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
   }
 
+
+  /* ── Nav links inside overlay ─────────────────────────────── */
   .nav-center .nav-link {
-    font-size: 15px;
-    letter-spacing: 3px;
-    padding: 8px 16px;
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    padding: 14px 20px;
     color: var(--text-dark);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border-bottom: 1px solid rgba(160, 131, 88, 0.14);
+    display: block;
   }
+
+  .nav-center .nav-link::after {
+    display: none; /* no underline animation needed inside overlay */
+  }
+
+  /* ── Services wrapper ─────────────────────────────────────── */
+  .nav-center .nav-dropdown-wrapper {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: static !important;
+  }
+
+  .nav-center .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(160, 131, 88, 0.14);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    text-decoration: none;
+  }
+
+  /* ── Services mega panel — COLLAPSED (default) ───────────── */
+  /*
+    We use BOTH the default selector AND the hover/active override
+    to fully defeat the desktop !important rules on position/transform.
+  */
+  .nav-center .services-mega-panel,
+  .nav-center .mega-dropdown-panel,
+  .nav-center .mega-menu-dropdown,
+  .nav-center .large-mega,
+  /* Also override the desktop :hover active state selectors */
+  .nav-center .nav-dropdown-wrapper:hover .services-mega-panel,
+  .nav-center .nav-dropdown-wrapper:hover .mega-dropdown-panel,
+  .nav-center .nav-dropdown-wrapper:hover .mega-menu-dropdown,
+  .nav-center .nav-dropdown-wrapper:hover .large-mega {
+    /* Kill ALL desktop absolute positioning */
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    /* Reset sizing */
+    width: 100% !important;
+    max-width: 400px !important;
+    min-width: unset !important;
+    /* Kill desktop visibility */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    /* Visual */
+    box-shadow: none !important;
+    border-radius: 8px;
+    border: none;
+    background: rgba(246, 241, 235, 0.9);
+    padding: 0 !important;
+    margin: 0;
+    z-index: auto !important;
+    transition: opacity 0.3s ease, max-height 0.4s ease, visibility 0.3s ease !important;
+  }
+
+  /* ── Services mega panel — EXPANDED (active) ─────────────── */
+  .nav-center .nav-dropdown-wrapper.active .services-mega-panel,
+  .nav-center .nav-dropdown-wrapper.active .mega-dropdown-panel,
+  .nav-center .nav-dropdown-wrapper.active .mega-menu-dropdown,
+  .nav-center .nav-dropdown-wrapper.active .large-mega {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: 1600px !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding: 12px 8px !important;
+    border-top: 1px solid rgba(160, 131, 88, 0.18);
+    margin-top: 0;
+  }
+
+  /* ── Services mega grid — single column ──────────────────── */
+  .nav-center .services-mega-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    width: 100%;
+  }
+
+  .nav-center .services-mega-col {
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(160, 131, 88, 0.1);
+  }
+
+  .nav-center .services-mega-col:last-child {
+    border-bottom: none;
+  }
+
+  .nav-center .services-mega-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(160, 131, 88, 0.2);
+  }
+
+  .nav-center .services-mega-title {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .nav-center .services-mega-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+
+  .nav-center .services-mega-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav-center .services-mega-list li {
+    padding: 0;
+  }
+
+  .nav-center .services-mega-list li a {
+    font-size: 12px;
+    padding: 7px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  .nav-center .services-mega-list li a:hover {
+    color: var(--brand-brown);
+  }
+
+  .nav-center .services-mega-list li a .bullet {
+    color: var(--brand-gold);
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  /* Hide the bottom footer ribbon & box-shadow inside mobile mega panel */
+  .nav-center .services-mega-footer,
+  .nav-center .mega-footer-left,
+  .nav-center .mega-footer-btn {
+    display: none !important;
+  }
+
+  /* ── BOOK CONSULTATION CTA — mobile only ─────────────────── */
+  .nav-center-mobile-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 13px 32px;
+    background-color: var(--brand-brown);
+    color: #FFF;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .nav-center-mobile-cta:hover {
+    background-color: #261B12;
+    transform: translateY(-1px);
+  }
+
 
   .brand-stats-grid,
   .showcase-top-grid,
