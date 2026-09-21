@@ -3755,8 +3755,9 @@ header.header:not(.hero-reveal),
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
-    max-height: 1600px !important;
+    max-height: 55vh !important; /* Enable inner scrolling so the trigger never leaves the screen */
     overflow-y: auto !important;
+    overscroll-behavior: contain;
     pointer-events: auto !important;
     padding: 12px 8px !important;
     border-top: 1px solid rgba(160, 131, 88, 0.18);
