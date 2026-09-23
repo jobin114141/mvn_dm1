@@ -1083,3 +1083,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+  // 16. MOBILE MEGA MENU ACCORDION TOGGLE
+  const megaHeaders = document.querySelectorAll('.services-mega-header');
+  megaHeaders.forEach(header => {
+    header.addEventListener('click', (e) => {
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle active class on the clicked header
+        header.classList.toggle('active');
+      }
+    });
+  });

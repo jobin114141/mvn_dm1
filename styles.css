@@ -7454,3 +7454,31 @@ header.header:not(.hero-reveal),
     gap: 10px;
   }
 }
+/* Mobile Mega Menu Accordion for Services */
+@media (max-width: 1024px) {
+  .services-mega-list {
+    display: none;
+    padding-bottom: 15px;
+  }
+  .services-mega-header.active + .services-mega-list {
+    display: block;
+  }
+  .services-mega-header {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+  }
+  .nav-center .services-mega-header::after {
+    content: '+';
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--brand-gold);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-center .services-mega-header.active::after {
+    content: '-';
+  }
+}
